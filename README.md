@@ -10,6 +10,6 @@ Creating a branch should follow the following pattern:
 
 * New branches should follow the naming convention
 `[TCA-TaskID]/add-navbar-header`
-* Commits should follow the [conventional-commit](https://www.conventionalcommits.org/en/v1.0.0/) pattern along with the ID of the task e.g `[TCA-25]feat: add responsiveness to header for mobile screens`
+* Commits should follow the [conventional-commit](https://www.conventionalcommits.org/en/v1.0.0/) pattern e.g `feat: add responsiveness to header for mobile screens`
 
 * All changes should be merged to `develop` branch ia a pull request explaining what the changes entails.
