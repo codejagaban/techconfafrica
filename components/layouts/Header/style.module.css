@@ -1,0 +1,28 @@
+.bar1,
+.bar2 {
+  height: 2px;
+  background-color: #505050;
+  margin: 4px 0;
+  z-index: 99999;
+  transition: 0.2s;
+}
+.bar1 {
+  width: 4rem;
+}
+.bar2 {
+  width: 2rem;
+}
+
+/* Rotate first bar */
+.menuChange .bar1 {
+  width: 3rem;
+  -webkit-transform: rotate(-45deg) translate(-12px, 10px);
+  transform: rotate(-45deg) translate(-12px, 10px);
+}
+
+/* Rotate last bar */
+.menuChange .bar2 {
+  width: 3rem;
+  -webkit-transform: rotate(45deg) translate(3px, 5px);
+  transform: rotate(45deg) translate(3px, 5px);
+}
