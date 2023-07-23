@@ -2,7 +2,6 @@
 import Image from "next/image";
 import logo from "@/public/logo.svg";
 import LinkComponent from "@/components/atoms/LinkComponent";
-import styles from "./page.module.css";
 import Link from "next/link";
 import { useState } from "react";
 import clsx from "clsx";
@@ -30,14 +29,14 @@ export function Header() {
           <div>
             <Image src={logo} alt="TCA Logo" />
           </div>
-          <nav className="hidden">
-            <ul className="flex justify-center text-gray-500">
+          <nav className=" absolute bg-white p-4 border w-full h-full top-4">
+            <ul className="flex items-center flex-col h-full justify-center text-gray-500  overflow-hidden">
               {routes.map((route) => (
-                <li key={route.name} className="ml-6 text-sm">
+                <li key={route.name} className="md:ml-6 mt-6 text-sm ">
                   <Link href={route.url}>{route.name}</Link>
                 </li>
               ))}
-              <li className="ml-6">
+              <li className="md:ml-6 mt-6">
                 <LinkComponent
                   url="/host-event"
                   label="Host an event"
@@ -46,7 +45,7 @@ export function Header() {
               </li>
             </ul>
           </nav>
-          <button onClick={toggleIsOpen} className="md:hidden">
+          <button onClick={toggleIsOpen} className="md:hidden z-50">
             <div
               className={clsx(
                 "h-0.5 bg-black my-1 w-6 transition duration-300 ease-in-out",
