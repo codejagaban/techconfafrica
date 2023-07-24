@@ -29,8 +29,8 @@ export function Header() {
           <div>
             <Image src={logo} alt="TCA Logo" />
           </div>
-          <nav className=" absolute bg-white p-4 border w-full h-full top-4">
-            <ul className="flex items-center flex-col h-full justify-center text-gray-500  overflow-hidden">
+          <nav className=" p-4">
+            <ul className="flex text-gray-500 ">
               {routes.map((route) => (
                 <li key={route.name} className="md:ml-6 mt-6 text-sm ">
                   <Link href={route.url}>{route.name}</Link>
