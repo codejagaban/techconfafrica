@@ -12,7 +12,7 @@ export function Footer() {
     { name: "FAQ", link: "/#" },
   ];
   return (
-    <footer>
+    <footer className="fixed left-0 bottom-0 w-full">
       <div className="container mx-auto">
         <div className="flex justify-between py-10">
           <p className="font-bold text-lg"> Tech Conf Africa</p>
