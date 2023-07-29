@@ -16,7 +16,7 @@ export default function NotFound() {
 
       <div className="container mx-auto">
         <div className="flex justify-center items-center p-4">
-          <div className="w-2/6 h-64 ml-56 mt-32 gap-14">
+          <div className="w-2/6 h-64 ml-52 mt-32 gap-14">
             <h1 className="text-7xl font-bold text-red-600 mb-2">Oops</h1>
             <p className="text-4xl font-semi-bold text-gray-500 mb-2">
               Something went wrong
