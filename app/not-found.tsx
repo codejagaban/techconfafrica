@@ -3,7 +3,7 @@ import background from ".././public/body-bg.svg";
 
 export default function NotFound() {
   return (
-    <div>
+    <section>
       <div className="absolute -z-10 w-full">
         <Image
           src={background}
@@ -14,24 +14,28 @@ export default function NotFound() {
         />
       </div>
 
-      <div className="w-screen h-screen flex justify-center items-center">
-        <div className="w-9/12 h-3/6 flex justify-center items-center p-6">
-          <div>
-            <h1 className="text-6xl font-bold text-red-600">Oops</h1>
-            <p className="text-4xl font-semi-bold text-gray-500">
+      <div className="container mx-auto">
+        <div className="flex justify-center items-center p-4">
+          <div className="w-2/6 h-64 ml-56 mt-32 gap-14">
+            <h1 className="text-7xl font-bold text-red-600 mb-2">Oops</h1>
+            <p className="text-4xl font-semi-bold text-gray-500 mb-2">
               Something went wrong
             </p>
-            <p className="text-xl font-normal text-gray-500 pb-14">
+            <p className="text-xl font-normal text-gray-500 mb-14">
               You landed on the wrong page. Please check the link again, go back
               Home or reach out to us
             </p>
 
-            <div className="gap-8">
-              <button className="bg-black text-white font-bold py-5 px-10 rounded inline-flex tracking-wider mr-8">
+            {/* button */}
+            <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+              <a
+                className="inline-flex justify-center rounded-lg text-sm font-semibold py-3 px-4 bg-black text-white"
+                href="/"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="21"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                 >
@@ -51,9 +55,11 @@ export default function NotFound() {
                   />
                 </svg>
                 <span className="ml-2">Home</span>
-              </button>
-
-              <button className="border border-gray-200 bg-white text-black font-bold py-5 px-10 mt-5 rounded inline-flex tracking-wider">
+              </a>
+              <a
+                className="inline-flex justify-center rounded-lg text-sm font-semibold py-3 px-4 bg-white text-black ring-1 ring-black"
+                href="/support"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="21"
@@ -77,19 +83,21 @@ export default function NotFound() {
                   />
                 </svg>
                 <span className="ml-2">Contact Support</span>
-              </button>
+              </a>
             </div>
           </div>
-        </div>
-        <div>
-          <Image
-            src="/page-image.svg"
-            alt="page image"
-            width="421"
-            height="418"
-          />
+
+          {/* image */}
+          <div className="mt-32 ml-32">
+            <Image
+              src="/page-image.svg"
+              alt="page image"
+              width="421"
+              height="418"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
