@@ -1,0 +1,8 @@
+{
+  "recommendations": ["astro-build.astro-vscode"],
+  "unwantedRecommendations": [],
+    "prettier.documentSelectors": ["**/*.astro"],
+    "[astro]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
