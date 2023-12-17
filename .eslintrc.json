@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "extends": ["plugin:prettier/recommended"],
   "rules": {
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],

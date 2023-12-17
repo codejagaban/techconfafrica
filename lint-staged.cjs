@@ -3,5 +3,5 @@ module.exports = {
     "eslint --max-warnings=0",
     () => "tsc --skipLibCheck --noEmit",
   ],
-  "*.{ts,tsx,css,astro}": ["prettier --write"],
+  "*.{ts,tsx,json,css,js,astro}": ["prettier --write"],
 };
