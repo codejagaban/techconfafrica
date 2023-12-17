@@ -6,7 +6,7 @@ import Footer from "@/components/layouts/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Tech Confs Africa",
+  title: "Tech Conf Africa",
   description: "First of it's kind",
 };
 

@@ -1,10 +1,18 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "extends": ["plugin:prettier/recommended", "plugin:astro/recommended"],
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "parser": "astro-eslint-parser",
+      "processor": "astro/client-side-ts",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"]
+      }
+    }
+  ],
   "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "double"],
-    "semi": ["error", "always"],
-    "react/react-in-jsx-scope": "off"
-  }
+    "prettier/prettier": "error"
+  },
+  "plugins": ["prettier"]
 }
