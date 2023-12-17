@@ -13,14 +13,17 @@
   "dependencies": {
     "@astrojs/check": "^0.3.3",
     "astro": "^4.0.6",
-    "eslint": "^8.56.0",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
+    "@typescript-eslint/parser": "^6.14.0",
     "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^0.31.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.33.2",
     "husky": "^8.0.3",
