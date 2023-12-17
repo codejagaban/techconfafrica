@@ -1,17 +1,26 @@
 {
   "name": "techconfafrica",
-  "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged --config lint-staged.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.3",
     "astro": "^4.0.6",
+    "eslint": "^8.56.0",
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "autoprefixer": "^10.4.16",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
   }
 }

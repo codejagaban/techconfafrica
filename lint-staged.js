@@ -1,7 +1,7 @@
 module.exports = {
-  "*.{js,jsx,ts,tsx}": [
+  "*.{ts,tsx,astro}": [
     "eslint --max-warnings=0",
     () => "tsc --skipLibCheck --noEmit",
   ],
-  "*.{js,jsx,ts,tsx,json,css,js}": ["prettier --write"],
+  "*.{ts,tsx,css,astro}": ["prettier --write"],
 };
