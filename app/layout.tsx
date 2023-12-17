@@ -5,7 +5,7 @@ import Header from "@/components/layouts/Header/";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Tech Confs Africa",
+  title: "Tech Conf Africa",
   description: "First of it's kind",
 };
 

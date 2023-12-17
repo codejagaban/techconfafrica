@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { LinkType } from "./types";
 
 export function LinkComponent({ url, label, style, size = "md" }: LinkType) {
+  // some comments here
   const className = clsx(
     {
       "bg-black text-white border-black": style === "primary",
