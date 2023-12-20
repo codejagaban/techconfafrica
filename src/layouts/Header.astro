@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import logo from "../images/logo.svg";
+import Button from "../components/element/Button.astro";
+---
+
+<header>
+  <div class="container mx-auto max-w-screen-xl p-5">
+    <nav>
+      <div class="flex justify-between items-center">
+        <div class="">
+          <a href="/" class="z-30">
+            <Image src={logo} alt="Tech Conf Africa Logo" />
+          </a>
+        </div>
+        <div
+          class="sm:flex sm:items-center items-start sm:p-0 p-5 pt-2 sm:relative absolute top-0 sm:z-auto z-20 sm:flex-row flex-col sm:w-[inherit] w-full bg-white gap-5 sm:h-auto h-[300px] justify-center sm:shadow-none shadow-lg shadow-black-500/40 navbar left-0 hidden"
+        >
+          <div class="flex justify-end w-full sm:hidden">
+            <button class="m-2 menu-close block">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 4L20 20"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path
+                  d="M4 20L20 4"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </button>
+          </div>
+          <a href="/" class="mr-5 sm:mb-0 sm:inline block mb-4">Home</a>
+          <div class="flex w-full sm:w-[inherit] flex-col sm:flex-row text-center gap-5">
+            <Button href="/events" label="Explore Events" style="primary" size="md" />
+            <Button href="/host-event" label="Host an Event" style="secondary" size="md" />
+          </div>
+        </div>
+        <div class="block sm:hidden">
+          <button class="m-2 menu">
+            <div class="bg-black w-8 h-0.5"></div>
+            <div class="bg-black w-7 h-0.5 mt-1"></div>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const button = document.querySelector(".menu");
+  const closeButton = document.querySelector(".menu-close");
+  const navbar = document.querySelector(".navbar");
+  function toggleClass() {
+    navbar?.classList.toggle("hidden");
+  }
+
+  button?.addEventListener("click", toggleClass);
+  closeButton?.addEventListener("click", toggleClass);
+</script>

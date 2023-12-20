@@ -1,0 +1,85 @@
+---
+import { getImage } from "astro:assets";
+import { Image } from "astro:assets";
+
+import linkedIn from "../images/linekedin.svg";
+import bgPattern from "../images/bg-pattern.svg";
+const footerBg = await getImage({ src: bgPattern, format: "svg" });
+---
+
+<footer class="absolute bottom-0 w-full">
+  <div class="container mx-auto max-w-screen-xl px-5">
+    <div class="flex flex-wrap justify-between py-6 my-6 gap-2">
+      <h4 class="font-heading sm:w-auto w-full text-xl">Tech Conf Africa</h4>
+      <div class="flex items-center">
+        <a href="#" class="mr-4 align-middle">
+          <svg
+            width="22"
+            height="20"
+            viewBox="0 0 18 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.66262 15.3121C12.4534 15.3121 16.1687 9.6846 16.1687 4.80597C16.1687 4.64777 16.1652 4.48605 16.1582 4.32784C16.8809 3.80517 17.5046 3.15776 18 2.41605C17.3269 2.71552 16.6122 2.91111 15.8804 2.99612C16.651 2.53425 17.2279 1.80868 17.5043 0.953898C16.7794 1.38349 15.9867 1.68653 15.1601 1.85003C14.6031 1.25824 13.8667 0.86641 13.0648 0.735111C12.2628 0.603812 11.4399 0.740361 10.7233 1.12365C10.0067 1.50693 9.43635 2.1156 9.10039 2.85556C8.76442 3.59551 8.68157 4.42553 8.86465 5.2173C7.39687 5.14364 5.96095 4.76235 4.64999 4.09815C3.33902 3.43394 2.18227 2.50165 1.25473 1.36171C0.7833 2.17451 0.639042 3.13631 0.851273 4.05164C1.0635 4.96698 1.6163 5.76716 2.3973 6.28956C1.81097 6.27095 1.23748 6.11308 0.724219 5.82901V5.87472C0.723693 6.72768 1.01857 7.55451 1.55873 8.21465C2.09889 8.87479 2.85099 9.32749 3.68719 9.49581C3.14404 9.64442 2.57399 9.66607 2.02113 9.55909C2.25709 10.2927 2.71618 10.9342 3.33433 11.3943C3.95248 11.8544 4.69884 12.11 5.46926 12.1255C4.16132 13.1529 2.54563 13.7102 0.882422 13.7075C0.587465 13.7071 0.292799 13.689 0 13.6534C1.68964 14.7374 3.65515 15.3131 5.66262 15.3121Z"
+              fill="black"></path>
+          </svg>
+        </a>
+        <a href="#" class="mr-4 align-middle">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 9H2V21H6V9Z"
+              fill="white"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </a>
+        <a href="#" class="mr-4 align-middle">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="24" height="24" rx="2" fill="white"></rect>
+            <path
+              d="M5.6 5H18.4C19.28 5 20 5.7875 20 6.75V17.25C20 18.2125 19.28 19 18.4 19H5.6C4.72 19 4 18.2125 4 17.25V6.75C4 5.7875 4.72 5 5.6 5Z"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M19 6L12 12L5 6"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      </div>
+      <div class=""></div>
+    </div>
+  </div>
+  <div style={`background-image: url(${footerBg.src});`} class="h-36 w-full"></div>
+</footer>
