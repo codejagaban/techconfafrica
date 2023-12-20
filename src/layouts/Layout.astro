@@ -1,6 +1,7 @@
 ---
-import '../styles/global.css';
-import Header from './Header.astro';
+import "../styles/global.css";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
 
 interface Props {
   title: string;
@@ -41,5 +42,6 @@ const { title, description, keywords, image } = Astro.props;
     <main class="px-4">
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
