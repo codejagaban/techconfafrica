@@ -2,6 +2,25 @@
   "extends": ["plugin:prettier/recommended", "plugin:astro/recommended"],
   "overrides": [
     {
+      "files": ["**/*.mjs"],
+      "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2015
+      },
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        "prettier/prettier": [
+          "error",
+          {
+            "singleQuote": false,
+            "endOfLine": "auto"
+          }
+        ],
+        "import/no-extraneous-dependencies": "off", // mjs is only used by Astro for configuration, false positive
+        "import/no-unresolved": "off" // Also false positive with mjs file
+      }
+    },
+    {
       "files": ["*.astro"],
       "parser": "astro-eslint-parser",
       "processor": "astro/client-side-ts",
@@ -186,5 +205,6 @@
 //       }
 //     }
 //   ]
+
 
 // }
