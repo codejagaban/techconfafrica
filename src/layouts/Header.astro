@@ -1,7 +1,7 @@
 ---
-import { Image } from 'astro:assets';
-import logo from '../images/logo.svg';
-import Button from '../components/element/Button.astro';
+import { Image } from "astro:assets";
+import logo from "../images/logo.svg";
+import Button from "../components/element/Button.astro";
 ---
 
 <header class="p-5">
@@ -58,13 +58,13 @@ import Button from '../components/element/Button.astro';
 </header>
 
 <script>
-  const button = document.querySelector('.menu');
-  const closeButton = document.querySelector('.menu-close');
-  const navbar = document.querySelector('.navbar');
+  const button = document.querySelector(".menu");
+  const closeButton = document.querySelector(".menu-close");
+  const navbar = document.querySelector(".navbar");
   function toggleClass() {
-    navbar?.classList.toggle('hidden');
+    navbar?.classList.toggle("hidden");
   }
 
-  button?.addEventListener('click', toggleClass);
-  closeButton?.addEventListener('click', toggleClass);
+  button?.addEventListener("click", toggleClass);
+  closeButton?.addEventListener("click", toggleClass);
 </script>

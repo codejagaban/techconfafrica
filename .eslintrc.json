@@ -1,5 +1,5 @@
 {
-  "extends": ["plugin:prettier/recommended", "plugin:astro/recommended"],
+  "extends": ["plugin:astro/recommended"],
   "overrides": [
     {
       "files": ["*.astro"],
@@ -12,7 +12,11 @@
     }
   ],
   "rules": {
-    "prettier/prettier": "error"
+    "indent": ["error", 2],
+    "linebreak-style": "off",
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "react/react-in-jsx-scope": "off"
   },
   "plugins": ["prettier"]
 }
