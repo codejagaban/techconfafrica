@@ -2,7 +2,7 @@
   "extends": ["plugin:prettier/recommended", "plugin:astro/recommended"],
   "overrides": [
     {
-      "files": ["**/*.mjs"],
+      "files": ["**/*.mjs,*.cjs"],
       "parserOptions": {
         "sourceType": "module",
         "ecmaVersion": 2015
