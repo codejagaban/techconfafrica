@@ -4,7 +4,7 @@ import Button from "../element/Button.astro";
 
 <section class="py-20 h-screen">
   <div class="container mx-auto max-w-screen-xl p-5">
-    <div class="font-heading flex mt-20">
+    <div class="font-heading flex mt-10 mb-10">
       <p class="text-4xl mr-2 text-gray-600">
         Organize
         <span class="bg-gradient-to-r from-cyan-500 to-blue-500 p-2 inline-block w-fit rounded-full"
@@ -17,13 +17,67 @@ import Button from "../element/Button.astro";
       </p>
       <p class="text-4xl text-gray-600">Attend</p>
     </div>
-    <h1 class="text-7xl font-heading leading-[90px] my-5">
-      Tech <span class="text-amber-500">Events</span>
-      <br /> in Africa
+    <h1 class="text-7xl font-heading">
+      <span class="flex items-end flex-wrap">
+        <span> Tech</span>
+        <span class="overflow-hidden block h-[100px] ml-5">
+          <span class="spin text-orange-500">Events</span>
+          <span class="spin text-cyan-500">Hangouts</span>
+          <span class="spin text-red-500">Festivals</span>
+          <span class="spin text-teal-500">Summits</span>
+          <span class="spin text-emerald-500">Parties</span>
+          <span class="spin text-indigo-500">Workshops</span>
+          <span class="spin text-orange-500">Events</span>
+        </span>
+        <span class="block w-full mt-8"> in Africa</span>
+      </span>
     </h1>
+
     <div class="flex gap-10 mt-10">
       <Button href="/events" label="Explore Events" size="lg" style="primary" />
       <Button href="/host-event" label="Host an Events" size="lg" style="secondary" />
     </div>
   </div>
 </section>
+
+<style>
+  .spin {
+    display: block;
+    height: 100%;
+    animation: spin_words 10s infinite;
+    /* animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67, 1); */
+    overflow: hidden;
+  }
+  @keyframes spin_words {
+    10% {
+      transform: translateY(-82%);
+    }
+    20% {
+      transform: translateY(-70%);
+    }
+    30% {
+      transform: translateY(-182%);
+    }
+    40% {
+      transform: translateY(-170%);
+    }
+    50% {
+      transform: translateY(-282%);
+    }
+    60% {
+      transform: translateY(-270%);
+    }
+    70% {
+      transform: translateY(-382%);
+    }
+    80% {
+      transform: translateY(-370%);
+    }
+    90% {
+      transform: translateY(-482%);
+    }
+    100% {
+      transform: translateY(-470%);
+    }
+  }
+</style>
