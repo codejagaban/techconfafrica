@@ -1,0 +1,29 @@
+---
+import Button from "../element/Button.astro";
+---
+
+<section class="py-20 h-screen">
+  <div class="container mx-auto max-w-screen-xl p-5">
+    <div class="font-heading flex mt-20">
+      <p class="text-4xl mr-2 text-gray-600">
+        Organize
+        <span class="bg-gradient-to-r from-cyan-500 to-blue-500 p-2 inline-block w-fit rounded-full"
+        ></span>
+      </p>
+      <p class="text-4xl mr-2 text-gray-600">
+        Participate
+        <span class="bg-gradient-to-r from-red-500 to-amber-500 p-2 inline-block w-fit rounded-full"
+        ></span>
+      </p>
+      <p class="text-4xl text-gray-600">Attend</p>
+    </div>
+    <h1 class="text-7xl font-heading leading-[90px] my-5">
+      Tech <span class="text-amber-500">Events</span>
+      <br /> in Africa
+    </h1>
+    <div class="flex gap-10 mt-10">
+      <Button href="/events" label="Explore Events" size="lg" style="primary" />
+      <Button href="/host-event" label="Host an Events" size="lg" style="secondary" />
+    </div>
+  </div>
+</section>
