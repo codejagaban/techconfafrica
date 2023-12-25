@@ -17,9 +17,8 @@ module.exports = {
     //   },
     // },
     fontFamily: {
-      heading: ["GeistBold", "sans-serif"],
-      body: ["GeistRegular", "sans-serif"],
-      sans: ["GeistRegular", "sans-serif"],
+      body: ["Inter Variable", "sans-serif"],
+      sans: ["Inter Variable", "sans-serif"],
     },
   },
 };
