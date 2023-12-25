@@ -11,7 +11,7 @@ import Button from "../element/Button.astro";
   </div>
   <div class="top-0 left-0 z-20 bg-red-200 w-screen h-screen absolute opacity-20"></div>
 
-  <div class="glow absolute"></div>
+  <div class="glow"></div>
 
   <!-- <div class="container mx-auto max-w-screen-xl p-5">
     <div class="font-heading flex sm:justify-start justify-center mt-10 mb-10">
@@ -51,25 +51,12 @@ import Button from "../element/Button.astro";
 </section>
 
 <style>
-  .hero {
-    background-color: #ffffff;
-    width: calc(280vh);
-    grid-template-columns: repeat(28, calc(10vh));
-    width: 170vh;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(17, 10vh);
-    grid-template-rows: repeat(10, 10vh);
-  }
-
   .glow {
-    display: block;
-    top: 20rem;
-    left: 30rem;
-    width: 300px;
     height: 300px;
-    border-radius: 50%;
-    opacity: 1;
+    width: 300px;
+    z-index: 20;
+    top: 10rem;
+    left: 20rem;
     background: radial-gradient(
       circle,
       rgba(0, 0, 0.1) 10%,
@@ -80,8 +67,8 @@ import Button from "../element/Button.astro";
     );
     transition: opacity 0.5s cubic-bezier(0.64, 0.04, 0.35, 1);
     filter: blur(10px);
-
-    z-index: 5;
+    opacity: 1;
+    position: absolute;
   }
   .glow::before {
     content: "";
@@ -92,12 +79,10 @@ import Button from "../element/Button.astro";
     height: 500px;
     border-radius: 50%;
     opacity: 0.8;
+    z-index: 20;
     background: radial-gradient(circle, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.5) 35%);
     transition: opacity 0.5s cubic-bezier(0.64, 0.04, 0.35, 1);
-    /* filter: drop-shadow(); */
     filter: blur(20px);
-
-    z-index: 5;
     position: absolute;
   }
 
@@ -207,7 +192,9 @@ import Button from "../element/Button.astro";
 
   console.log(document.documentElement.clientWidth);
   // Function to generate random number within a range
-  const getRandomNumber = (min: number, max: number): number => Math.random() * (max - min) + min;
+  const getRandomNumber = (min: number, max: number): number =>
+    Math.round(Math.random() * (max - min) + min);
+  console.log(getRandomNumber(0, 500));
 
   // Function to set random position within the viewport
   const setRandomPosition = (): { x: number; y: number } => {
@@ -232,12 +219,14 @@ import Button from "../element/Button.astro";
 
   // Main function
   const main = (): void => {
-    const movingBox = document.querySelector("") as HTMLElement;
+    const movingBox = document.querySelector(".glow") as HTMLElement;
 
     // Set initial random position
     const initialPosition = setRandomPosition();
-    movingBox.style.right = `${initialPosition.x}px`;
-    movingBox.style.bottom = `${initialPosition.y}px`;
+    // movingBox.style.right = `${initialPosition.x}px`;
+    // movingBox.style.bottom = `${initialPosition.y}px`;
+    movingBox.style.left = `-${initialPosition.x}px`;
+    movingBox.style.top = `-${initialPosition.y}px`;
 
     // Start the animation
     animateBox(movingBox);
