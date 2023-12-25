@@ -1,0 +1,186 @@
+---
+import { getImage } from "astro:assets";
+
+import bgGrid from "../../images/bg-grid.svg";
+const heroBg = await getImage({ src: bgGrid, format: "svg" });
+import Button from "../element/Button.astro";
+---
+
+<section class="w-full h-screen py-40 overflow-hidden relative">
+  <div class="h-full absolute w-full top-0 z-30" style={`background-image: url(${heroBg.src});`}>
+  </div>
+  <div class="top-0 left-0 z-20 bg-zinc-500 w-screen h-screen absolute opacity-10"></div>
+
+  <div class="glow"></div>
+
+  <div class="container mx-auto max-w-screen-xl p-5">
+    <div class="z-[80] relative">
+      <div class="font-heading flex sm:justify-start justify-center mt-10 mb-10">
+        <p class="sm:text-4xl text-lg mr-3 text-gray-600">
+          Organize
+          <span
+            class="bg-gradient-to-r from-cyan-500 to-blue-500 align-middle p-2 inline-block w-fit rounded-full"
+          ></span>
+        </p>
+        <p class="sm:text-4xl text-lg mr-3 text-gray-600">
+          Participate
+          <span
+            class="bg-gradient-to-r from-red-500 to-amber-500 p-2 inline-block w-fit align-middle rounded-full"
+          ></span>
+        </p>
+        <p class="sm:text-4xl text-lg text-gray-600">Attend</p>
+      </div>
+      <h1 class="sm:text-7xl text-5xl sm:text-left text-center font-heading">
+        <span class="flex items-end flex-wrap justify-center sm:justify-normal">
+          <span class="inline-block"> Tech</span>
+          <span class="overflow-hidden block h-[100px] sm:ml-5 ml-0">
+            <span class="spin text-orange-500">Events</span>
+            <span class="spin text-cyan-500">Hangouts</span>
+            <span class="spin text-red-500">Festivals</span>
+            <span class="spin text-teal-500">Summits</span>
+            <span class="spin text-emerald-500">Parties</span>
+            <span class="spin text-indigo-500">Workshops</span>
+            <span class="spin text-orange-500">Events</span>
+          </span>
+          <span class="block w-full mt-8"> in Africa</span>
+        </span>
+      </h1>
+      <div class="flex sm:flex-row flex-col text-center sm:gap-10 gap-5 mt-10">
+        <Button href="/events" label="Explore Events" size="lg" style="primary" />
+        <Button href="/host-event" label="Host an Events" size="lg" style="secondary" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .glow {
+    height: 300px;
+    width: 300px;
+    z-index: 20;
+    top: 10rem;
+    left: 20rem;
+    transition: background 2s cubic-bezier(0.64, 0.04, 0.35, 1);
+    opacity: 1;
+    position: absolute;
+    --glow-before-background: radial-gradient(circle, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.5) 35%);
+  }
+  .glow::before {
+    content: "";
+    display: block;
+    top: -7rem;
+    left: -6rem;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: 20;
+    background: var(--glow-before-background);
+    transition: background 2s cubic-bezier(0.64, 0.04, 0.35, 1);
+    filter: blur(20px);
+    position: absolute;
+  }
+  .spin {
+    display: block;
+    height: 100%;
+    padding: 0 10px;
+    animation: spin_words 10s infinite;
+    animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67, 1);
+    overflow: hidden;
+  }
+
+  @keyframes spin_words {
+    10% {
+      transform: translateY(-82%);
+    }
+    20% {
+      transform: translateY(-70%);
+    }
+    30% {
+      transform: translateY(-182%);
+    }
+    40% {
+      transform: translateY(-170%);
+    }
+    50% {
+      transform: translateY(-282%);
+    }
+    60% {
+      transform: translateY(-270%);
+    }
+    70% {
+      transform: translateY(-382%);
+    }
+    80% {
+      transform: translateY(-370%);
+    }
+    90% {
+      transform: translateY(-482%);
+    }
+    100% {
+      transform: translateY(-470%);
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  const BOX_SIZE = 500;
+  // Function to generate random number within a range
+  const getRandomNumber = (max: number): number => {
+    Math.floor(Math.random() * max);
+    const randomNumber = Math.floor(Math.random() * max);
+    return randomNumber;
+  };
+
+  // Function to set random BgColor and position within the viewport
+  const setRandomPosition = (): { x: number; y: number; bgColor: string } => {
+    const randomBgColor = `${Math.floor(Math.random() * 256)}, ${Math.floor(
+      Math.random() * 256
+    )}, ${Math.floor(Math.random() * 256)}`;
+
+    const X = document.documentElement.clientWidth - BOX_SIZE;
+    const Y = document.documentElement.clientHeight - BOX_SIZE;
+    return {
+      x: getRandomNumber(X),
+      y: getRandomNumber(Y),
+      bgColor: randomBgColor,
+    };
+  };
+
+  // Function to animate the box within the viewport
+  const animateBox = (box: HTMLElement): void => {
+    const { bgColor, x, y } = setRandomPosition();
+    gsap.to(box, {
+      x: x,
+      y: y,
+      background: `rgb(${bgColor})`,
+      duration: 2,
+      onComplete: () => {
+        // Set a new background color for the ::before element
+        const newBackgroundColor = `rgb(${bgColor}`;
+        box.style.setProperty("--glow-before-background", newBackgroundColor);
+
+        // Continue the animation
+        animateBox(box);
+      },
+      ease: "power1.inOut",
+    });
+  };
+
+  // Main function
+  const main = (): void => {
+    const movingBox = document.querySelector(".glow") as HTMLElement;
+
+    // Set initial random position
+    const initialPosition = setRandomPosition();
+    movingBox.style.left = `${initialPosition.x}px`;
+    movingBox.style.top = `${initialPosition.y}px`;
+
+    animateBox(movingBox);
+  };
+
+  // Call the main function when the DOM is ready
+  document.addEventListener("DOMContentLoaded", main);
+</script>

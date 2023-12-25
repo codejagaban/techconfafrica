@@ -1,13 +1,11 @@
 ---
 import { getImage } from "astro:assets";
-import { Image } from "astro:assets";
 
-import linkedIn from "../images/linekedin.svg";
 import bgPattern from "../images/bg-pattern.svg";
 const footerBg = await getImage({ src: bgPattern, format: "svg" });
 ---
 
-<footer class="absolute bottom-0 w-full">
+<footer class="bottom-0 w-full">
   <div class="container mx-auto max-w-screen-xl px-5">
     <div class="flex flex-wrap justify-between py-6 my-6 gap-2">
       <h4 class="font-heading sm:w-auto w-full text-xl">Tech Conf Africa</h4>
