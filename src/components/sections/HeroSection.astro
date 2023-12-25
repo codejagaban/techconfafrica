@@ -1,21 +1,31 @@
 ---
+import { getImage } from "astro:assets";
+
+import bgGrid from "../../images/bg-grid.svg";
+const heroBg = await getImage({ src: bgGrid, format: "svg" });
 import Button from "../element/Button.astro";
 ---
 
-<section class="py-20 h-screen">
-  <div class="container mx-auto max-w-screen-xl p-5">
-    <div class="font-heading flex mt-10 mb-10">
-      <p class="text-4xl mr-2 text-gray-600">
+<section class="w-full h-screen py-40 overflow-hidden relative">
+  <div class="h-full absolute w-full top-0 z-30" style={`background-image: url(${heroBg.src});`}>
+  </div>
+  <div class="top-0 left-0 z-20 bg-red-200 w-screen h-screen absolute opacity-20"></div>
+
+  <div class="glow absolute"></div>
+
+  <!-- <div class="container mx-auto max-w-screen-xl p-5">
+    <div class="font-heading flex sm:justify-start justify-center mt-10 mb-10">
+      <p class="sm:text-4xl text-lg mr-3 text-gray-600">
         Organize
-        <span class="bg-gradient-to-r from-cyan-500 to-blue-500 p-2 inline-block w-fit rounded-full"
+        <span class="bg-gradient-to-r from-cyan-500 to-blue-500 align-middle p-2 inline-block w-fit rounded-full"
         ></span>
       </p>
-      <p class="text-4xl mr-2 text-gray-600">
+      <p class="sm:text-4xl text-lg mr-3 text-gray-600">
         Participate
-        <span class="bg-gradient-to-r from-red-500 to-amber-500 p-2 inline-block w-fit rounded-full"
+        <span class="bg-gradient-to-r from-red-500 to-amber-500 p-2 inline-block w-fit align-middle rounded-full"
         ></span>
       </p>
-      <p class="text-4xl text-gray-600">Attend</p>
+      <p class="sm:text-4xl text-lg text-gray-600">Attend</p>
     </div>
     <h1 class="text-7xl font-heading">
       <span class="flex items-end flex-wrap">
@@ -33,21 +43,64 @@ import Button from "../element/Button.astro";
       </span>
     </h1>
 
-    <div class="flex gap-10 mt-10">
+    <div class="flex sm:flex-row flex-col text-center sm:gap-10 gap-5 mt-10">
       <Button href="/events" label="Explore Events" size="lg" style="primary" />
       <Button href="/host-event" label="Host an Events" size="lg" style="secondary" />
     </div>
-  </div>
+  </div> -->
 </section>
 
 <style>
-  .spin {
-    display: block;
-    height: 100%;
-    animation: spin_words 10s infinite;
-    /* animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67, 1); */
-    overflow: hidden;
+  .hero {
+    background-color: #ffffff;
+    width: calc(280vh);
+    grid-template-columns: repeat(28, calc(10vh));
+    width: 170vh;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(17, 10vh);
+    grid-template-rows: repeat(10, 10vh);
   }
+
+  .glow {
+    display: block;
+    top: 20rem;
+    left: 30rem;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    opacity: 1;
+    background: radial-gradient(
+      circle,
+      rgba(0, 0, 0.1) 10%,
+      rgba(0, 0, 0.1) 35%,
+      rgba(0, 0, 0.1) 55%,
+      rgba(0, 0, 0.1) 59%,
+      rgba(0, 0, 0.1) 89%
+    );
+    transition: opacity 0.5s cubic-bezier(0.64, 0.04, 0.35, 1);
+    filter: blur(10px);
+
+    z-index: 5;
+  }
+  .glow::before {
+    content: "";
+    display: block;
+    top: -7rem;
+    left: -6rem;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    opacity: 0.8;
+    background: radial-gradient(circle, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.5) 35%);
+    transition: opacity 0.5s cubic-bezier(0.64, 0.04, 0.35, 1);
+    /* filter: drop-shadow(); */
+    filter: blur(20px);
+
+    z-index: 5;
+    position: absolute;
+  }
+
   @keyframes spin_words {
     10% {
       transform: translateY(-82%);
@@ -80,4 +133,116 @@ import Button from "../element/Button.astro";
       transform: translateY(-470%);
     }
   }
+  .grid-design {
+    background: #111112;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-radius: 10px;
+    position: relative;
+    margin: 0 1px 1px 0;
+    z-index: 10;
+  }
 </style>
+
+<script>
+  import { gsap } from "gsap";
+
+  // gsap.to(".reveal", {
+  //   y: 180,
+  //   duration: 5,
+  //   stagger: 0.3,
+  //   repeat: -1,
+  //   keyframes: [{ y: -200, duration: 0.5 }],
+  //   modifiers: {
+  //     // y: gsap.utils.unitize((y) => parseFloat(y) % 200), //force x value to be between 0 and 500 using modulus
+  //   },
+  // });
+
+  // Function to generate random number within a range
+  // const getRandomNumber = (min: number, max: number) => Math.random() * (max - min) + min;
+  // // Function to set random position
+  // const BOX_SIZE = 50;
+
+  // // Function to set random position within the viewport
+  // const setRandomPosition = (): { x: number, y: number } => {
+  //   const maxX = window.innerWidth - BOX_SIZE;
+  //   const maxY = window.innerHeight - BOX_SIZE;
+  //   return {
+  //     x: getRandomNumber(0, maxX),
+  //     y: getRandomNumber(0, maxY),
+  //   };
+  // };
+
+  // // Function to animate the box within the viewport
+  // const animateBox = (box: HTMLElement, onComplete: () => { x: number, y: number }): void => {
+  //   gsap.to(box, {
+  //     x: onComplete().x,
+  //     y: onComplete().y,
+  //     duration: 2,
+  //     onComplete,
+  //     ease: 'power1.inOut',
+  //     repeat: -1
+  //   });
+  // };
+
+  // // Main function
+  // const main = (): void => {
+  //   const movingBox = document.querySelector('.reveal') as HTMLElement;
+
+  //   // Set initial random position
+  //   const initialPosition = setRandomPosition();
+  //   movingBox.style.left = `${initialPosition.x}px`;
+  //   movingBox.style.top = `${initialPosition.y}px`;
+
+  //   // Start the animation
+  //   animateBox(movingBox, setRandomPosition);
+  // };
+
+  // // Call the main function when the DOM is ready
+  // document.addEventListener('DOMContentLoaded', main);
+
+  // index.ts
+  // index.ts
+  const BOX_SIZE = 350;
+
+  console.log(document.documentElement.clientWidth);
+  // Function to generate random number within a range
+  const getRandomNumber = (min: number, max: number): number => Math.random() * (max - min) + min;
+
+  // Function to set random position within the viewport
+  const setRandomPosition = (): { x: number; y: number } => {
+    const maxX = document.documentElement.clientWidth - BOX_SIZE;
+    const maxY = document.documentElement.clientHeight - BOX_SIZE;
+    return {
+      x: getRandomNumber(0, maxX),
+      y: getRandomNumber(0, maxY),
+    };
+  };
+
+  // Function to animate the box within the viewport
+  const animateBox = (box: HTMLElement): void => {
+    gsap.to(box, {
+      x: setRandomPosition().x,
+      y: setRandomPosition().y,
+      duration: 2,
+      onComplete: () => animateBox(box),
+      ease: "power1.inOut",
+    });
+  };
+
+  // Main function
+  const main = (): void => {
+    const movingBox = document.querySelector("") as HTMLElement;
+
+    // Set initial random position
+    const initialPosition = setRandomPosition();
+    movingBox.style.right = `${initialPosition.x}px`;
+    movingBox.style.bottom = `${initialPosition.y}px`;
+
+    // Start the animation
+    animateBox(movingBox);
+  };
+
+  // Call the main function when the DOM is ready
+  document.addEventListener("DOMContentLoaded", main);
+</script>
