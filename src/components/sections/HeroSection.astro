@@ -9,7 +9,7 @@ import Button from "../element/Button.astro";
 <section class="w-full h-screen py-40 overflow-hidden relative">
   <div class="h-full absolute w-full top-0 z-30" style={`background-image: url(${heroBg.src});`}>
   </div>
-  <div class="top-0 left-0 z-20 bg-red-200 w-screen h-screen absolute opacity-20"></div>
+  <div class="top-0 left-0 z-20 bg-zinc-500 w-screen h-screen absolute opacity-10"></div>
 
   <div class="glow"></div>
 
@@ -57,18 +57,11 @@ import Button from "../element/Button.astro";
     z-index: 20;
     top: 10rem;
     left: 20rem;
-    background: radial-gradient(
-      circle,
-      rgba(0, 0, 0.1) 10%,
-      rgba(0, 0, 0.1) 35%,
-      rgba(0, 0, 0.1) 55%,
-      rgba(0, 0, 0.1) 59%,
-      rgba(0, 0, 0.1) 89%
-    );
-    transition: opacity 0.5s cubic-bezier(0.64, 0.04, 0.35, 1);
+    transition: background 2s cubic-bezier(0.64, 0.04, 0.35, 1);
     filter: blur(10px);
     opacity: 1;
     position: absolute;
+    --glow-before-background: radial-gradient(circle, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.5) 35%);
   }
   .glow::before {
     content: "";
@@ -80,8 +73,8 @@ import Button from "../element/Button.astro";
     border-radius: 50%;
     opacity: 0.8;
     z-index: 20;
-    background: radial-gradient(circle, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.5) 35%);
-    transition: opacity 0.5s cubic-bezier(0.64, 0.04, 0.35, 1);
+    background: var(--glow-before-background);
+    transition: background 2s cubic-bezier(0.64, 0.04, 0.35, 1);
     filter: blur(20px);
     position: absolute;
   }
@@ -188,31 +181,53 @@ import Button from "../element/Button.astro";
 
   // index.ts
   // index.ts
-  const BOX_SIZE = 350;
-
-  console.log(document.documentElement.clientWidth);
+  const BOX_SIZE = 600;
   // Function to generate random number within a range
-  const getRandomNumber = (min: number, max: number): number =>
-    Math.round(Math.random() * (max - min) + min);
-  console.log(getRandomNumber(0, 500));
+  const getRandomNumber = (min: number, max: number): number => {
+    Math.floor(Math.random() * max);
+    const randomNumber = Math.floor(Math.random() * max);
+
+    // const randomNumber = Math.random() * (max - min) + min;
+    // Randomly determine the sign (positive or negative)
+    // const randomNumber = Math.random() < 0.5 ? -1 : 1;
+    // return randomNumber * randomNumber;
+    return randomNumber;
+  };
 
   // Function to set random position within the viewport
-  const setRandomPosition = (): { x: number; y: number } => {
+  const setRandomPosition = (): { x: number; y: number; bgColor: string } => {
+    const randomBgColor = `${Math.floor(Math.random() * 256)}, ${Math.floor(
+      Math.random() * 256
+    )}, ${Math.floor(Math.random() * 256)}`;
+
     const maxX = document.documentElement.clientWidth - BOX_SIZE;
     const maxY = document.documentElement.clientHeight - BOX_SIZE;
+    console.log(document.documentElement.clientWidth);
+    console.log(maxY);
     return {
       x: getRandomNumber(0, maxX),
       y: getRandomNumber(0, maxY),
+      bgColor: randomBgColor,
     };
   };
 
   // Function to animate the box within the viewport
   const animateBox = (box: HTMLElement): void => {
+    const { bgColor, x, y } = setRandomPosition();
+    // console.log(x, y)
     gsap.to(box, {
-      x: setRandomPosition().x,
-      y: setRandomPosition().y,
+      x: x,
+      y: y,
+      background: `rgb(${bgColor})`,
       duration: 2,
-      onComplete: () => animateBox(box),
+      onComplete: () => {
+        // Set a new background color for the ::before element
+        const newBackgroundColor = `rgb(${bgColor}`;
+        box.style.setProperty("--glow-before-background", newBackgroundColor);
+
+        // Continue the animation
+        animateBox(box);
+      },
       ease: "power1.inOut",
     });
   };
@@ -223,10 +238,9 @@ import Button from "../element/Button.astro";
 
     // Set initial random position
     const initialPosition = setRandomPosition();
-    // movingBox.style.right = `${initialPosition.x}px`;
-    // movingBox.style.bottom = `${initialPosition.y}px`;
-    movingBox.style.left = `-${initialPosition.x}px`;
-    movingBox.style.top = `-${initialPosition.y}px`;
+    movingBox.style.left = `${initialPosition.x}px`;
+    movingBox.style.top = `${initialPosition.y}px`;
+    // movingBox.style.bacgr
 
     // Start the animation
     animateBox(movingBox);
