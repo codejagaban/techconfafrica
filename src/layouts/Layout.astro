@@ -1,17 +1,4 @@
 ---
-import { gsap } from "gsap";
-
-import { SlowMo } from "gsap/EasePack";
-
-import { Flip } from "gsap/Flip";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Observer } from "gsap/Observer";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { Draggable } from "gsap/Draggable";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import { EaselPlugin } from "gsap/EaselPlugin";
-import { TextPlugin } from "gsap/TextPlugin";
-
 import "../styles/global.css";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
@@ -52,7 +39,7 @@ const { title, description, keywords, image } = Astro.props;
   </head>
   <body>
     <Header />
-    <main class="px-4">
+    <main>
       <slot />
     </main>
     <Footer />
@@ -60,15 +47,13 @@ const { title, description, keywords, image } = Astro.props;
 </html>
 
 <script>
-  gsap.registerPlugin(
-    Flip,
-    ScrollTrigger,
-    Observer,
-    ScrollToPlugin,
-    Draggable,
-    MotionPathPlugin,
-    EaselPlugin,
-    TextPlugin,
-    SlowMo
-  );
+  import { gsap } from "gsap";
+
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { Observer } from "gsap/Observer";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  import { Draggable } from "gsap/Draggable";
+  import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+
+  gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin, Draggable, MotionPathPlugin);
 </script>
