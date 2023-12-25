@@ -58,7 +58,6 @@ import Button from "../element/Button.astro";
     top: 10rem;
     left: 20rem;
     transition: background 2s cubic-bezier(0.64, 0.04, 0.35, 1);
-    filter: blur(10px);
     opacity: 1;
     position: absolute;
     --glow-before-background: radial-gradient(circle, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.5) 35%);
@@ -111,102 +110,30 @@ import Button from "../element/Button.astro";
       transform: translateY(-470%);
     }
   }
-  .grid-design {
-    background: #111112;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-radius: 10px;
-    position: relative;
-    margin: 0 1px 1px 0;
-    z-index: 10;
-  }
 </style>
 
 <script>
   import { gsap } from "gsap";
 
-  // gsap.to(".reveal", {
-  //   y: 180,
-  //   duration: 5,
-  //   stagger: 0.3,
-  //   repeat: -1,
-  //   keyframes: [{ y: -200, duration: 0.5 }],
-  //   modifiers: {
-  //     // y: gsap.utils.unitize((y) => parseFloat(y) % 200), //force x value to be between 0 and 500 using modulus
-  //   },
-  // });
-
+  const BOX_SIZE = 500;
   // Function to generate random number within a range
-  // const getRandomNumber = (min: number, max: number) => Math.random() * (max - min) + min;
-  // // Function to set random position
-  // const BOX_SIZE = 50;
-
-  // // Function to set random position within the viewport
-  // const setRandomPosition = (): { x: number, y: number } => {
-  //   const maxX = window.innerWidth - BOX_SIZE;
-  //   const maxY = window.innerHeight - BOX_SIZE;
-  //   return {
-  //     x: getRandomNumber(0, maxX),
-  //     y: getRandomNumber(0, maxY),
-  //   };
-  // };
-
-  // // Function to animate the box within the viewport
-  // const animateBox = (box: HTMLElement, onComplete: () => { x: number, y: number }): void => {
-  //   gsap.to(box, {
-  //     x: onComplete().x,
-  //     y: onComplete().y,
-  //     duration: 2,
-  //     onComplete,
-  //     ease: 'power1.inOut',
-  //     repeat: -1
-  //   });
-  // };
-
-  // // Main function
-  // const main = (): void => {
-  //   const movingBox = document.querySelector('.reveal') as HTMLElement;
-
-  //   // Set initial random position
-  //   const initialPosition = setRandomPosition();
-  //   movingBox.style.left = `${initialPosition.x}px`;
-  //   movingBox.style.top = `${initialPosition.y}px`;
-
-  //   // Start the animation
-  //   animateBox(movingBox, setRandomPosition);
-  // };
-
-  // // Call the main function when the DOM is ready
-  // document.addEventListener('DOMContentLoaded', main);
-
-  // index.ts
-  // index.ts
-  const BOX_SIZE = 600;
-  // Function to generate random number within a range
-  const getRandomNumber = (min: number, max: number): number => {
+  const getRandomNumber = (max: number): number => {
     Math.floor(Math.random() * max);
     const randomNumber = Math.floor(Math.random() * max);
-
-    // const randomNumber = Math.random() * (max - min) + min;
-    // Randomly determine the sign (positive or negative)
-    // const randomNumber = Math.random() < 0.5 ? -1 : 1;
-    // return randomNumber * randomNumber;
     return randomNumber;
   };
 
-  // Function to set random position within the viewport
+  // Function to set random BgColor and position within the viewport
   const setRandomPosition = (): { x: number; y: number; bgColor: string } => {
     const randomBgColor = `${Math.floor(Math.random() * 256)}, ${Math.floor(
       Math.random() * 256
     )}, ${Math.floor(Math.random() * 256)}`;
 
-    const maxX = document.documentElement.clientWidth - BOX_SIZE;
-    const maxY = document.documentElement.clientHeight - BOX_SIZE;
-    console.log(document.documentElement.clientWidth);
-    console.log(maxY);
+    const X = document.documentElement.clientWidth - BOX_SIZE;
+    const Y = document.documentElement.clientHeight - BOX_SIZE;
     return {
-      x: getRandomNumber(0, maxX),
-      y: getRandomNumber(0, maxY),
+      x: getRandomNumber(X),
+      y: getRandomNumber(Y),
       bgColor: randomBgColor,
     };
   };
@@ -214,7 +141,6 @@ import Button from "../element/Button.astro";
   // Function to animate the box within the viewport
   const animateBox = (box: HTMLElement): void => {
     const { bgColor, x, y } = setRandomPosition();
-    // console.log(x, y)
     gsap.to(box, {
       x: x,
       y: y,
@@ -240,9 +166,7 @@ import Button from "../element/Button.astro";
     const initialPosition = setRandomPosition();
     movingBox.style.left = `${initialPosition.x}px`;
     movingBox.style.top = `${initialPosition.y}px`;
-    // movingBox.style.bacgr
 
-    // Start the animation
     animateBox(movingBox);
   };
 
