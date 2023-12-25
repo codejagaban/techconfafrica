@@ -13,41 +13,44 @@ import Button from "../element/Button.astro";
 
   <div class="glow"></div>
 
-  <!-- <div class="container mx-auto max-w-screen-xl p-5">
-    <div class="font-heading flex sm:justify-start justify-center mt-10 mb-10">
-      <p class="sm:text-4xl text-lg mr-3 text-gray-600">
-        Organize
-        <span class="bg-gradient-to-r from-cyan-500 to-blue-500 align-middle p-2 inline-block w-fit rounded-full"
-        ></span>
-      </p>
-      <p class="sm:text-4xl text-lg mr-3 text-gray-600">
-        Participate
-        <span class="bg-gradient-to-r from-red-500 to-amber-500 p-2 inline-block w-fit align-middle rounded-full"
-        ></span>
-      </p>
-      <p class="sm:text-4xl text-lg text-gray-600">Attend</p>
-    </div>
-    <h1 class="text-7xl font-heading">
-      <span class="flex items-end flex-wrap">
-        <span> Tech</span>
-        <span class="overflow-hidden block h-[100px] ml-5">
-          <span class="spin text-orange-500">Events</span>
-          <span class="spin text-cyan-500">Hangouts</span>
-          <span class="spin text-red-500">Festivals</span>
-          <span class="spin text-teal-500">Summits</span>
-          <span class="spin text-emerald-500">Parties</span>
-          <span class="spin text-indigo-500">Workshops</span>
-          <span class="spin text-orange-500">Events</span>
+  <div class="container mx-auto max-w-screen-xl p-5">
+    <div class="z-[80] relative">
+      <div class="font-heading flex sm:justify-start justify-center mt-10 mb-10">
+        <p class="sm:text-4xl text-lg mr-3 text-gray-600">
+          Organize
+          <span
+            class="bg-gradient-to-r from-cyan-500 to-blue-500 align-middle p-2 inline-block w-fit rounded-full"
+          ></span>
+        </p>
+        <p class="sm:text-4xl text-lg mr-3 text-gray-600">
+          Participate
+          <span
+            class="bg-gradient-to-r from-red-500 to-amber-500 p-2 inline-block w-fit align-middle rounded-full"
+          ></span>
+        </p>
+        <p class="sm:text-4xl text-lg text-gray-600">Attend</p>
+      </div>
+      <h1 class="text-7xl font-heading">
+        <span class="flex items-end flex-wrap">
+          <span> Tech</span>
+          <span class="overflow-hidden block h-[100px] ml-5">
+            <span class="spin text-orange-500">Events</span>
+            <span class="spin text-cyan-500">Hangouts</span>
+            <span class="spin text-red-500">Festivals</span>
+            <span class="spin text-teal-500">Summits</span>
+            <span class="spin text-emerald-500">Parties</span>
+            <span class="spin text-indigo-500">Workshops</span>
+            <span class="spin text-orange-500">Events</span>
+          </span>
+          <span class="block w-full mt-8"> in Africa</span>
         </span>
-        <span class="block w-full mt-8"> in Africa</span>
-      </span>
-    </h1>
-
-    <div class="flex sm:flex-row flex-col text-center sm:gap-10 gap-5 mt-10">
-      <Button href="/events" label="Explore Events" size="lg" style="primary" />
-      <Button href="/host-event" label="Host an Events" size="lg" style="secondary" />
+      </h1>
+      <div class="flex sm:flex-row flex-col text-center sm:gap-10 gap-5 mt-10">
+        <Button href="/events" label="Explore Events" size="lg" style="primary" />
+        <Button href="/host-event" label="Host an Events" size="lg" style="secondary" />
+      </div>
     </div>
-  </div> -->
+  </div>
 </section>
 
 <style>
@@ -76,6 +79,14 @@ import Button from "../element/Button.astro";
     transition: background 2s cubic-bezier(0.64, 0.04, 0.35, 1);
     filter: blur(20px);
     position: absolute;
+  }
+  .spin {
+    display: block;
+    height: 100%;
+    padding: 0 10px;
+    animation: spin_words 10s infinite;
+    animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67, 1);
+    overflow: hidden;
   }
 
   @keyframes spin_words {
