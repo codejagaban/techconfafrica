@@ -22,5 +22,5 @@ const { href, label, style, size, icon } = Astro.props;
     },
   ]}
 >
-  {icon} {label}</a
+  {(<img src={icon} alt="Icon" class="inline-block mr-2" />)} {label}</a
 >
