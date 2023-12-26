@@ -1,35 +1,72 @@
 @font-face {
-  font-family: 'GeistBold';
+  font-family: "GeistBold";
   src:
-    url('/fonts/geist/geist-bold-webfont.woff2') format('woff2'),
-    url('/fonts/geist/geist-bold-webfont.woff') format('woff');
+    url("/fonts/geist/geist-bold-webfont.woff2") format("woff2"),
+    url("/fonts/geist/geist-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GeistMedium';
+  font-family: "GeistMedium";
   src:
-    url('/fonts/geist/geist-medium-webfont.woff2') format('woff2'),
-    url('/fonts/geist/geist-medium-webfont.woff') format('woff');
+    url("/fonts/geist/geist-medium-webfont.woff2") format("woff2"),
+    url("/fonts/geist/geist-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GeistRegular';
+  font-family: "GeistRegular";
   src:
-    url('/fonts/geist/geist-regular-webfont.woff2') format('woff2'),
-    url('/fonts/geist/geist-regular-webfont.woff') format('woff');
+    url("/fonts/geist/geist-regular-webfont.woff2") format("woff2"),
+    url("/fonts/geist/geist-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GeistSemiBold';
+  font-family: "GeistSemiBold";
   src:
-    url('/fonts/geist/geist-semibold-webfont.woff2') format('woff2'),
-    url('/fonts/geist/geist-semibold-webfont.woff') format('woff');
+    url("/fonts/geist/geist-semibold-webfont.woff2") format("woff2"),
+    url("/fonts/geist/geist-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+
+/* background image cover */
+.cover {
+  margin: 0;
+  padding: 0;
+  background-image: url("/public/background.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.image-container {
+  position: relative;
+  width: 421px;
+  height: 417.45px;
+}
+
+.animated-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: changeImage 1s infinite;
+}
+
+@keyframes changeImage {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+.image-container img:last-child {
+  animation-delay: -0.5s;
 }
