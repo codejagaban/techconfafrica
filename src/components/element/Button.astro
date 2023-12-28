@@ -4,10 +4,9 @@ interface Props {
   label: string;
   style: "primary" | "secondary";
   size: "md" | "lg";
-  icon: any; //for a button with an icon
 }
 
-const { href, label, style, size, icon } = Astro.props;
+const { href, label, style, size } = Astro.props;
 ---
 
 <a
@@ -22,5 +21,5 @@ const { href, label, style, size, icon } = Astro.props;
     },
   ]}
 >
-  {(<img src={icon} alt="Icon" class="inline-block mr-2" />)} {label}</a
+  {label}</a
 >
