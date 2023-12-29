@@ -1,0 +1,64 @@
+---
+import Card from "../elements/Card.astro";
+import event1 from "../../images/event-1.png";
+import event2 from "../../images/event-2.png";
+import event3 from "../../images/event-3.png";
+const recentEvents = [
+  {
+    title: "Establish a strong client or user base in your niche",
+    location: "Online",
+    image: event1,
+  },
+  {
+    title: "Sustainable development of Tech skills within local communities",
+    location: "Abuja, Nigeria",
+    image: event2,
+  },
+  {
+    title: "A Tech bro’s Journey",
+    location: "Lagos, Nigeria",
+    image: event3,
+  },
+  {
+    title: "Establish a strong client or user base in your niche",
+    location: "Online",
+    image: event1,
+  },
+  {
+    title: "Sustainable development of Tech skills within local communities",
+    location: "Abuja, Nigeria",
+    image: event2,
+  },
+  {
+    title: "A Tech bro’s Journey",
+    location: "Lagos, Nigeria",
+    image: event3,
+  },
+];
+const colors = [
+  "text-emerald-500",
+  "text-red-900",
+  "text-cyan-600",
+  "text-amber-500",
+  "text-pink-600",
+  "text-indigo-900",
+];
+---
+
+<div class="grid grid-cols-3 py-20 gap-5">
+  {
+    recentEvents.map((event, i) => {
+      if (i < 3)
+        return (
+          <div style={`margin-top: -${4 * (i + 1)}rem`}>
+            <Card {...event} color={colors[i]} />
+          </div>
+        );
+      return (
+        <div style={`margin-top: ${i === 3 ? 2 : i === 4 ? -2 : -8}rem`}>
+          <Card {...event} color={colors[i]} />
+        </div>
+      );
+    })
+  }
+</div>
