@@ -4,7 +4,7 @@ import logo from "../images/logo.svg";
 import Button from "../components/element/Button.astro";
 ---
 
-<header>
+<header class="absolute w-full z-[999]">
   <div class="container mx-auto max-w-screen-xl p-5">
     <nav>
       <div class="flex justify-between items-center">
@@ -14,7 +14,7 @@ import Button from "../components/element/Button.astro";
           </a>
         </div>
         <div
-          class="sm:flex sm:items-center items-start sm:p-0 p-5 pt-2 sm:relative absolute top-0 sm:z-auto z-20 sm:flex-row flex-col sm:w-[inherit] w-full bg-white gap-5 sm:h-auto h-[300px] justify-center sm:shadow-none shadow-lg shadow-black-500/40 navbar left-0 hidden"
+          class="sm:flex sm:items-center items-start sm:p-0 p-5 pt-2 sm:relative absolute top-0 sm:z-auto z-20 sm:flex-row flex-col sm:w-[inherit] w-full sm:bg-transparent bg-white gap-5 sm:h-auto h-[300px] justify-center sm:shadow-none shadow-lg shadow-black-500/40 navbar left-0 hidden"
         >
           <div class="flex justify-end w-full sm:hidden">
             <button class="m-2 menu-close block">
