@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import "../styles/global.css";
+
+import Header from "../layouts/Header.astro"; //header component
+import Footer from "../layouts/Footer.astro"; //footer component
+import Button from "../components/element/Button.astro"; //button component
+---
+
+<body>
+  <Header />
+
+  <main>
+    <div
+      class="cover flex flex-col sm:flex-row items-center justify-center min-h-screen bg-gray-100 p-4"
+    >
+      <!-- content -->
+      <div class="md:order-1 sm:order-2 mr-[173px]">
+        <div class="gap-14 md:mt-6">
+          <h1 class="text-7xl sm:text-5xl font-bold text-red-600 mb-4">Oops</h1>
+          <p class="text-4xl text-gray-500 font-semibold mb-4">Something went wrong</p>
+          <p class="text-xl tracking-tighter font-normal text-gray-500 mb-6 w-[390px]">
+            You landed on the wrong page. Please check the link again, go back Home or reach out to
+            us.
+          </p>
+        </div>
+        <!-- buttons -->
+        <div class="flex flex-row gap-4">
+          <Button
+            href="/index"
+            label="Home"
+            size="lg"
+            style="primary"
+            icon="../../public/fi_home.png"
+          />
+          <Button
+            href="/support"
+            label="Contact Support"
+            size="lg"
+            style="secondary"
+            icon="../../public/mail.png"
+          />
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="image-container w-full sm:order-1">
+        <img src="/error.png" class="mb-0 md:mb-10 animated-image" alt="error image" />
+        <img src="/error-2.png" class="mb-0 md:mb-10 animated-image" alt="error image" />
+      </div>
+    </div>
+  </main>
+
+  <!-- <Footer /> -->
+</body>
