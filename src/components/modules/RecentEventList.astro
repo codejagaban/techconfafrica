@@ -45,20 +45,44 @@ const colors = [
 ];
 ---
 
-<div class="grid grid-cols-3 py-20 gap-5">
+<div class="grid lg:grid-cols-3 md:grid-cols-2 py-10 gap-5">
   {
     recentEvents.map((event, i) => {
-      if (i < 3)
-        return (
-          <div style={`margin-top: -${4 * (i + 1)}rem`}>
-            <Card {...event} color={colors[i]} />
-          </div>
-        );
+      const even = i % 2 === 0;
       return (
-        <div style={`margin-top: ${i === 3 ? 2 : i === 4 ? -2 : -8}rem`}>
+        <div class={`card-wrapper ${even ? "md:mt-8" : "md:-mt-8"} mt-2 lg:mt-3`}>
           <Card {...event} color={colors[i]} />
         </div>
       );
     })
   }
 </div>
+
+<style>
+  @media (min-width: 1024px) {
+    /* This a very wet code but it works for now, I'll update it later */
+    .card-wrapper:nth-child(1) {
+      margin-top: -2rem;
+    }
+
+    .card-wrapper:nth-child(2) {
+      margin-top: -6rem; /* Adjust the margin value for the second div */
+    }
+
+    .card-wrapper:nth-child(3) {
+      margin-top: -10rem; /* Adjust the margin value for the third div */
+    }
+
+    .card-wrapper:nth-child(4) {
+      margin-top: 2rem; /* Adjust the margin value for the fourth div */
+    }
+
+    .card-wrapper:nth-child(5) {
+      margin-top: -2rem; /* Adjust the margin value for the fifth div */
+    }
+
+    .card-wrapper:nth-child(6) {
+      margin-top: -7.5rem; /* Adjust the margin value for the sixth div */
+    }
+  }
+</style>
