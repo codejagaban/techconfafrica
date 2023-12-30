@@ -1,35 +1,42 @@
 @font-face {
-  font-family: 'GeistBold';
+  font-family: "GeistBold";
   src:
-    url('/fonts/geist/geist-bold-webfont.woff2') format('woff2'),
-    url('/fonts/geist/geist-bold-webfont.woff') format('woff');
+    url("/fonts/geist/geist-bold-webfont.woff2") format("woff2"),
+    url("/fonts/geist/geist-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GeistMedium';
+  font-family: "GeistMedium";
   src:
-    url('/fonts/geist/geist-medium-webfont.woff2') format('woff2'),
-    url('/fonts/geist/geist-medium-webfont.woff') format('woff');
+    url("/fonts/geist/geist-medium-webfont.woff2") format("woff2"),
+    url("/fonts/geist/geist-medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GeistRegular';
+  font-family: "GeistRegular";
   src:
-    url('/fonts/geist/geist-regular-webfont.woff2') format('woff2'),
-    url('/fonts/geist/geist-regular-webfont.woff') format('woff');
+    url("/fonts/geist/geist-regular-webfont.woff2") format("woff2"),
+    url("/fonts/geist/geist-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GeistSemiBold';
+  font-family: "GeistSemiBold";
   src:
-    url('/fonts/geist/geist-semibold-webfont.woff2') format('woff2'),
-    url('/fonts/geist/geist-semibold-webfont.woff') format('woff');
+    url("/fonts/geist/geist-semibold-webfont.woff2") format("woff2"),
+    url("/fonts/geist/geist-semibold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+
+.text-green-gradient {
+  background: var(--Gradient-100, linear-gradient(90deg, #00dd75 -28.74%, #60efff 129.89%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
