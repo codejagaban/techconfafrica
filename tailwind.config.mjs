@@ -16,9 +16,11 @@ module.exports = {
     //     DEFAULT: "##06AED4",
     //   },
     // },
+
+    // **TODO: Fontsource will be releasing a new version soon with geist as a font we should upgrade to that
     fontFamily: {
-      heading: ["GeistBold", "sans-serif"],
-      body: ["GeistRegular", "sans-serif"],
+      medium: ["GeistMedium", "sans-serif"],
+      heading: ["GeistSemiBold", "sans-serif"],
       sans: ["GeistRegular", "sans-serif"],
     },
   },

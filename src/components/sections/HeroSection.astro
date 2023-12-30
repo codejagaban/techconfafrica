@@ -3,15 +3,17 @@ import { getImage } from "astro:assets";
 
 import bgGrid from "../../images/bg-grid.svg";
 const heroBg = await getImage({ src: bgGrid, format: "svg" });
-import Button from "../element/Button.astro";
+import Button from "../elements/Button.astro";
 ---
 
 <section class="w-full h-screen py-40 overflow-hidden relative">
   <div class="h-full absolute w-full top-0 z-30" style={`background-image: url(${heroBg.src});`}>
   </div>
-  <div class="top-0 left-0 z-20 bg-zinc-500 w-screen h-screen absolute opacity-10"></div>
+  <div class="top-0 left-0 z-20 bg-zinc-500 w-screen h-screen absolute opacity-5"></div>
 
-  <div class="glow"></div>
+  <div class="glow-container">
+    <div class="glow"></div>
+  </div>
 
   <div class="container mx-auto max-w-screen-xl p-5">
     <div class="z-[80] relative">
@@ -54,32 +56,6 @@ import Button from "../element/Button.astro";
 </section>
 
 <style>
-  .glow {
-    height: 300px;
-    width: 300px;
-    z-index: 20;
-    top: 10rem;
-    left: 20rem;
-    transition: background 2s cubic-bezier(0.64, 0.04, 0.35, 1);
-    opacity: 1;
-    position: absolute;
-    --glow-before-background: radial-gradient(circle, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.5) 35%);
-  }
-  .glow::before {
-    content: "";
-    display: block;
-    top: -7rem;
-    left: -6rem;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    opacity: 0.8;
-    z-index: 20;
-    background: var(--glow-before-background);
-    transition: background 2s cubic-bezier(0.64, 0.04, 0.35, 1);
-    filter: blur(20px);
-    position: absolute;
-  }
   .spin {
     display: block;
     height: 100%;
@@ -121,42 +97,79 @@ import Button from "../element/Button.astro";
       transform: translateY(-470%);
     }
   }
+
+  .glow-container {
+    width: 1000px;
+    height: 800px;
+    position: absolute;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-name: orbit;
+    -webkit-animation-duration: 5s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-name: orbit;
+    -moz-animation-duration: 5s;
+    top: 50px;
+    left: 50px;
+    z-index: 20;
+    /* Add the following line to specify the transform property */
+    transform-origin: center center;
+    --glow-before-background: green;
+  }
+  .glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: var(--glow-before-background);
+    transition: background 2s cubic-bezier(0.64, 0.04, 0.35, 1);
+    border-radius: 50%;
+    filter: blur(150px);
+    z-index: 20;
+  }
+
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 </style>
 
 <script>
   import { gsap } from "gsap";
 
-  const BOX_SIZE = 500;
-  // Function to generate random number within a range
-  const getRandomNumber = (max: number): number => {
-    Math.floor(Math.random() * max);
-    const randomNumber = Math.floor(Math.random() * max);
-    return randomNumber;
-  };
+  const BOX_SIZE = 300;
 
   // Function to set random BgColor and position within the viewport
-  const setRandomPosition = (): { x: number; y: number; bgColor: string } => {
+  const setProperties = (): { width: number; height: number; bgColor: string } => {
     const randomBgColor = `${Math.floor(Math.random() * 256)}, ${Math.floor(
       Math.random() * 256
     )}, ${Math.floor(Math.random() * 256)}`;
 
-    const X = document.documentElement.clientWidth - BOX_SIZE;
-    const Y = document.documentElement.clientHeight - BOX_SIZE;
+    const width = document.documentElement.clientWidth - BOX_SIZE;
+    const height = document.documentElement.clientHeight - BOX_SIZE;
     return {
-      x: getRandomNumber(X),
-      y: getRandomNumber(Y),
+      width,
+      height,
       bgColor: randomBgColor,
     };
   };
 
   // Function to animate the box within the viewport
   const animateBox = (box: HTMLElement): void => {
-    const { bgColor, x, y } = setRandomPosition();
+    const { bgColor, width, height } = setProperties();
     gsap.to(box, {
-      x: x,
-      y: y,
-      background: `rgb(${bgColor})`,
-      duration: 2,
+      width: width,
+      height: height,
+      rotation: 360,
+      transformOrigin: "center center",
+      duration: 3,
+      ease: "linear",
       onComplete: () => {
         // Set a new background color for the ::before element
         const newBackgroundColor = `rgb(${bgColor}`;
@@ -165,18 +178,11 @@ import Button from "../element/Button.astro";
         // Continue the animation
         animateBox(box);
       },
-      ease: "power1.inOut",
     });
   };
 
-  // Main function
   const main = (): void => {
-    const movingBox = document.querySelector(".glow") as HTMLElement;
-
-    // Set initial random position
-    const initialPosition = setRandomPosition();
-    movingBox.style.left = `${initialPosition.x}px`;
-    movingBox.style.top = `${initialPosition.y}px`;
+    const movingBox = document.querySelector(".glow-container") as HTMLElement;
 
     animateBox(movingBox);
   };

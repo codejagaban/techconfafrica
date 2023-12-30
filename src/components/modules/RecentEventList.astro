@@ -1,0 +1,88 @@
+---
+import Card from "../elements/Card.astro";
+import event1 from "../../images/event-1.png";
+import event2 from "../../images/event-2.png";
+import event3 from "../../images/event-3.png";
+const recentEvents = [
+  {
+    title: "Establish a strong client or user base in your niche",
+    location: "Online",
+    image: event1,
+  },
+  {
+    title: "Sustainable development of Tech skills within local communities",
+    location: "Abuja, Nigeria",
+    image: event2,
+  },
+  {
+    title: "A Tech bro’s Journey",
+    location: "Lagos, Nigeria",
+    image: event3,
+  },
+  {
+    title: "Establish a strong client or user base in your niche",
+    location: "Online",
+    image: event1,
+  },
+  {
+    title: "Sustainable development of Tech skills within local communities",
+    location: "Abuja, Nigeria",
+    image: event2,
+  },
+  {
+    title: "A Tech bro’s Journey",
+    location: "Lagos, Nigeria",
+    image: event3,
+  },
+];
+const colors = [
+  "text-emerald-500",
+  "text-red-900",
+  "text-cyan-600",
+  "text-amber-500",
+  "text-pink-600",
+  "text-indigo-900",
+];
+---
+
+<div class="grid lg:grid-cols-3 md:grid-cols-2 py-10 gap-5">
+  {
+    recentEvents.map((event, i) => {
+      const even = i % 2 === 0;
+      return (
+        <div class={`card-wrapper ${even ? "md:mt-8" : "md:-mt-8"} mt-2 lg:mt-3`}>
+          <Card {...event} color={colors[i]} />
+        </div>
+      );
+    })
+  }
+</div>
+
+<style>
+  @media (min-width: 1024px) {
+    /* This a very wet code but it works for now, I'll update it later */
+    .card-wrapper:nth-child(1) {
+      margin-top: -2rem;
+    }
+
+    .card-wrapper:nth-child(2) {
+      margin-top: -6rem; /* Adjust the margin value for the second div */
+    }
+
+    .card-wrapper:nth-child(3) {
+      margin-top: -10rem; /* Adjust the margin value for the third div */
+    }
+
+    .card-wrapper:nth-child(4) {
+      margin-top: 2rem; /* Adjust the margin value for the fourth div */
+    }
+
+    .card-wrapper:nth-child(5) {
+      margin-top: -2rem; /* Adjust the margin value for the fifth div */
+    }
+
+    .card-wrapper:nth-child(6) {
+      margin-top: -7.5rem; /* Adjust the margin value for the sixth div */
+    }
+  }
+</style>

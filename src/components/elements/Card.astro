@@ -1,0 +1,28 @@
+---
+import { Picture } from "astro:assets";
+import { type ImageMetadata } from "astro";
+interface Props {
+  title: string;
+  location?: string;
+  image: ImageMetadata;
+  color: string;
+}
+
+const { image, title, location, color } = Astro.props;
+---
+
+<div
+  class="shadow-xl max-w-[280px] max-h-[229px] rounded-lg m-2 z-20 relative bg-white hover:-translate-y-6 ease-in-out duration-500"
+>
+  <Picture
+    src={image}
+    formats={["webp"]}
+    alt={`${title} image`}
+    width={280}
+    class="object-cover rounded-t-lg"
+  />
+  <div class="p-3">
+    {title && <h3 class="font-medium">{title}</h3>}
+    {location && <p class={color}>{location}</p>}
+  </div>
+</div>
