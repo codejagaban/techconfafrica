@@ -1,5 +1,8 @@
 ---
 import "../styles/global.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 
@@ -22,6 +25,8 @@ const { title, description, keywords, image } = Astro.props;
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="author" content="TechConfAfrica" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Open Graph and Twitter Card meta tags for social sharing -->
     <meta property="og:title" content={title} />
