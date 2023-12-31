@@ -74,6 +74,7 @@ import bottomPattern from "../../images/pattern-bottom.svg";
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
+    /* overflow: hidden; */
   }
 
   .swiper-slide {
@@ -89,8 +90,17 @@ import bottomPattern from "../../images/pattern-bottom.svg";
     /* transition: all 3s ease-in; */
   }
   .swiper-slide-active {
-    width: 600px;
+    width: 650px;
     margin-top: -2rem;
+  }
+  @media (max-width: 640px) {
+    .swiper-slide {
+      display: block;
+      width: 300px;
+    }
+    .swiper-slide-active {
+      width: 300px;
+    }
   }
 </style>
 
@@ -121,7 +131,7 @@ import bottomPattern from "../../images/pattern-bottom.svg";
     centeredSlides: true,
     slidesPerView: "auto",
     speed: 1000,
-    spaceBetween: 120,
+    spaceBetween: 50,
     autoplay: {
       delay: 2000,
       disableOnInteraction: false,
@@ -133,6 +143,12 @@ import bottomPattern from "../../images/pattern-bottom.svg";
       depth: 100,
       modifier: 2,
       slideShadows: true,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: "auto",
+        spaceBetween: 120,
+      },
     },
   });
 </script>
