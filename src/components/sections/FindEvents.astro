@@ -70,6 +70,7 @@ import bottomPattern from "../../images/pattern-bottom.svg";
   .swiper-slide img {
     display: block;
     width: 100%;
+    /* transition: all 3s ease-in; */
   }
   .swiper-slide-active {
     width: 600px;
@@ -78,11 +79,14 @@ import bottomPattern from "../../images/pattern-bottom.svg";
   .swiper-scrollbar {
     display: none;
   }
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
 </style>
 
 <script>
   import { gsap } from "gsap";
-  // import Swiper and modules styles
   const hoverableDivs = document.querySelectorAll(".hoverable")!;
 
   const hoverEffect = (e: MouseEvent, div: Element) => {
@@ -107,14 +111,13 @@ import bottomPattern from "../../images/pattern-bottom.svg";
     grabCursor: true,
     centeredSlides: true,
     slidesPerView: "auto",
-    speed: 400,
+    speed: 1000,
     spaceBetween: 120,
     autoplay: {
-      delay: 2500,
+      delay: 2000,
       disableOnInteraction: false,
     },
     loop: true,
-    // loop:true,
     coverflowEffect: {
       rotate: 0,
       stretch: 0,
