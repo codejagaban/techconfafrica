@@ -2,15 +2,12 @@
 import { Image } from "astro:assets";
 import "../styles/global.css";
 
-import Header from "../layouts/Header.astro"; //header component
-import Footer from "../layouts/Footer.astro"; //footer component
+import Layout from "../layouts/Layout.astro";
 import Button from "../components/element/Button.astro"; //button component
 ---
 
-<body>
-  <Header />
-
-  <main>
+<Layout title="404" description="404 page" image="" keywords="tech etc">
+  <section>
     <div
       class="cover flex flex-col sm:flex-row items-center justify-center min-h-screen bg-gray-100 p-4"
     >
@@ -43,7 +40,5 @@ import Button from "../components/element/Button.astro"; //button component
         <img src="/error-2.png" class="mb-0 md:mb-10 animated-image" alt="error image" />
       </div>
     </div>
-  </main>
-
-  <!-- <Footer /> -->
-</body>
+  </section>
+</Layout>
