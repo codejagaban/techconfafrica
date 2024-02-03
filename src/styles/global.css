@@ -80,3 +80,20 @@ body {
 .image-container img:last-child {
   animation-delay: -0.5s;
 }
+
+@media (max-width: 640px) {
+  .image-container {
+    position: relative;
+    width: 179px;
+    height: 177px;
+  }
+
+  .animated-image {
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 34px;
+    left: 120px;
+    animation: changeImage 1s linear infinite;
+  }
+}
