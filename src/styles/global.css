@@ -43,3 +43,57 @@
 body {
   overflow-x: hidden;
 }
+
+/* background image cover :: 404 page*/
+.cover {
+  margin: 0;
+  padding: 0;
+  background-image: url("/public/background.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+} /* ends here */
+
+.image-container {
+  position: relative;
+  width: 421px;
+  height: 417.45px;
+}
+
+.animated-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: changeImage 1s linear infinite;
+}
+
+@keyframes changeImage {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+.image-container img:last-child {
+  animation-delay: -0.5s;
+}
+
+@media (max-width: 640px) {
+  .image-container {
+    position: relative;
+    width: 179px;
+    height: 177px;
+  }
+
+  .animated-image {
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 34px;
+    left: 120px;
+    animation: changeImage 1s linear infinite;
+  }
+}

@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import "../styles/global.css";
+
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/elements/Button.astro"; //button component
+---
+
+<Layout title="Page Not Found" description="404 page" image="" keywords="tech etc">
+  <section class="cover">
+    <div class="flex sm:flex-row flex-col">
+      <!-- content -->
+      <div
+        class="sm:w-[390px] w-[350px] h-[256px] sm:mr-[173px] sm:mt-[246px] mt-[40px] sm:mb-[300px] mb-[162px] sm:mx-[215px] mx-auto sm:order-1 order-2"
+      >
+        <div class="sm:text-start text-center">
+          <h1
+            class="sm:text-7xl text-5xl font-bold text-[#D92D20] sm:leading-[90px] leading-[60px] mb-4"
+          >
+            Oops
+          </h1>
+          <p
+            class="sm:text-4xl text-2xl text-[#8F8F8F] sm:leading-[44px] leading-8 font-semibold mb-4"
+          >
+            Something went wrong
+          </p>
+          <p
+            class="sm:text-xl text-base sm:leading-[30px] leading-[24px] font-normal text-[#8F8F8F] sm:mb-[60px] mb-8"
+          >
+            You landed on the wrong page. Please check the link again, go back Home or reach out to
+            us.
+          </p>
+        </div>
+
+        <!-- buttons -->
+        <div class="flex sm:gap-10 gap-2">
+          <Button href="/index" label="Home" size="lg" style="primary" icon="/fi_home.svg" />
+          <Button
+            href="/support"
+            label="Contact Support"
+            size="lg"
+            style="secondary"
+            icon="/mail.svg"
+          />
+        </div>
+      </div>
+
+      <!-- image -->
+      <div class="image-container sm:mt-[220px] mt-[114px] sm:order-2 order-1 mb-10">
+        <img src="/error.png" class="mb-0 md:mb-10 animated-image" alt="error image" />
+        <img src="/error-2.png" class="mb-0 md:mb-10 animated-image" alt="error image" />
+      </div>
+    </div>
+  </section>
+</Layout>
