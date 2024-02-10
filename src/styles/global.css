@@ -34,6 +34,19 @@
   font-style: normal;
 }
 
+/* color for icon switch based on the display size */
+@media (min-width: 640px) {
+  :root {
+    --icon-color: gray; /* Default color for larger screens */
+  }
+}
+
+@media (max-width: 639px) {
+  :root {
+    --icon-color: white; /* Color for small screens */
+  }
+}
+
 .text-green-gradient {
   background: var(--Gradient-100, linear-gradient(90deg, #00dd75 -28.74%, #60efff 129.89%));
   background-clip: text;

@@ -1,0 +1,53 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Event Details" description="event details page" keywords="technology" image="">
+    <section class="pt-40 sm:mx-[149px] mx-4">
+        <div class="border rounded-lg sm:h-44 h-[355px] flex sm:flex-row flex-col bg-gray-200">
+            <!-- content div -->
+            <div class="my-[13.5px] sm:w-[783px] w-[343px] sm:h-[152px] h-[176px] sm:order-1 order-2">
+                <!-- breadcrumb on desktop -->
+                <nav class="text-gray-700 text-sm mb-4 sm:inline hidden" aria-label="Breadcrumb">
+                  <ol class="list-none pl-4 inline-flex">
+                    <li class="flex items-center">
+                      <a href="#">Events</a>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="17" viewBox="0 0 16 17" fill="none">
+                        <path d="M6 12.5L10 8.5L6 4.5" stroke="#8F8F8F" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                      </svg>
+                    </li>
+                    <li class="flex items-center">
+                      <a href="#" aria-current="page">Event Details</a>
+                    </li>
+                  </ol>
+                </nav>
+                <!-- text content -->
+                <div class="pl-4 text-gray-900 sm:text-4xl text-2xl leading-8  font-semibold">
+                    Sustainable development of Tech skills among local communities
+                </div>
+                <div class="ml-4 mt-3 flex sm:bg-transparent bg-black items-center border rounded-md h-10 w-10">
+                    <a href="#" class="p-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 22C19.6569 22 21 20.6569 21 19C21 17.3431 19.6569 16 18 16C16.3431 16 15 17.3431 15 19C15 20.6569 16.3431 22 18 22Z" stroke="var(--icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path
+                          d="M6 15C7.65685 15 9 13.6569 9 12C9 10.3431 7.65685 9 6 9C4.34315 9 3 10.3431 3 12C3 13.6569 4.34315 15 6 15Z" stroke="var(--icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path d="M8.58997 13.5098L15.42 17.4898" stroke="var(--icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path d="M18 8C19.6569 8 21 6.65685 21 5C21 3.34315 19.6569 2 18 2C16.3431 2 15 3.34315 15 5C15 6.65685 16.3431 8 18 8Z" stroke="var(--icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path d="M15.41 6.50977L8.58997 10.4898" stroke="var(--icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                      </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- image div -->
+            <div class="sm:flex-grow bg-cover bg-center border-none sm:rounded-br-lg rounded-tr-lg sm:rounded-tl-none rounded-tl-lg h-[176px] sm:order-2 order-1" style="background-image: url('/event-page.jpeg');"></div>
+        </div>
+    </section>
+</Layout>
