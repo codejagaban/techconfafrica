@@ -27,7 +27,9 @@ import Layout from "../../layouts/Layout.astro";
                 <div class="pl-4 text-gray-900 sm:text-4xl text-2xl leading-8  font-semibold">
                     Sustainable development of Tech skills among local communities
                 </div>
-                <div class="ml-4 mt-3 flex sm:bg-transparent bg-black items-center border rounded-md h-10 w-10">
+                <!-- icons -->
+                <div class="flex items-center">
+                  <div class="ml-4 mt-3 flex sm:bg-transparent bg-black items-center border rounded-md h-10 w-10">
                     <a href="#" class="p-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M18 22C19.6569 22 21 20.6569 21 19C21 17.3431 19.6569 16 18 16C16.3431 16 15 17.3431 15 19C15 20.6569 16.3431 22 18 22Z" stroke="var(--icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -43,6 +45,20 @@ import Layout from "../../layouts/Layout.astro";
                         </path>
                       </svg>
                     </a>
+                  </div>
+                    <!-- organizer name and image -->
+                  <div class="ml-[124px] sm:hidden bg-white border border-[#ccc] rounded-full h-[30px] flex justify-center">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="p-[2px]">
+                        <circle cx="12" cy="12" r="12" fill="url(#pattern0)"/>
+                        <defs>
+                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_2174_24111" transform="scale(0.015625)"/>
+                        </pattern>
+                        <image id="image0_2174_24111" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAONJREFUeF7t20EOhEAIRFG4/6F7DvEnYeFzryQIv6pBd2behOu9dPvsbog+k+NLgArQAqmJcw9iAAhSgZKB3IJkkAySQTJ4CiE+gA8oBeg0mH3Ai084P89HhqwEqIA209ICsQdjAeaZIgaAYKxBDMCAYy8fXwAIgiAIcoJpJEYGI4VjB3YrbC9gL2AvkCB43cM5PgZgAAZgQFnNZAhdGykQBEEQBEEQDBmgAm2glM/z+QUYisYUGoldO7kY32IEAzCg6RgIRgjFAsw+AgRBMNYgBmCAT2TCYfoPPz/HCqQCX1eBHzHnv7C7WhBSAAAAAElFTkSuQmCC"/>
+                        </defs>
+                      </svg>                      
+                        <span class="text-sm font-medium text-gray-900 ml-2 py-[5px] pr-3">Organizers Name</span>
+                  </div>
                 </div>
             </div>
 
