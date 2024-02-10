@@ -1,0 +1,31 @@
+---
+interface Props {
+  svgPaths: string[];
+  color: string;
+  width: string;
+  height: string;
+  bgColor: string;
+  rounded: string;
+}
+
+const { svgPaths, color, width, height, bgColor, rounded } = Astro.props;
+---
+
+<div class={`rounded-${rounded} ${bgColor} p-2 w-10 h-10`}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={width}
+    height={height}
+    viewBox="0 0 24 24"
+    fill="none">
+    {svgPaths.map((path) => (
+      <path
+        d={path}
+        stroke={color}
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    ))}
+  </svg>
+</div>
