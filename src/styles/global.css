@@ -56,3 +56,8 @@
 body {
   overflow-x: hidden;
 }
+
+#custom-width a {
+  display: block;
+  width: 100%;
+}
