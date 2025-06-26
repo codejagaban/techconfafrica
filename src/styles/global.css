@@ -64,10 +64,10 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  animation: changeImage 1s linear infinite;
+  animation: errorPageChangeImage 1s linear infinite;
 }
 
-@keyframes changeImage {
+@keyframes errorPageChangeImage {
   0%,
   50% {
     opacity: 1;
