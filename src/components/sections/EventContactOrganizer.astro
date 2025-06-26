@@ -1,0 +1,37 @@
+---
+import phone from "../../../public/phone.svg?raw";
+import mail from "../../../public/fi_mail.svg?raw";
+---
+
+<section class="flex justify-between items-center sm:w-[1142px] w-[375px] mx-4 my-16">
+    <div class="w-[704px] sm:ml-[149px]">
+      <p class="text-xl font-medium mb-4 text-gray-500">Contact Organizer</p>
+      <hr />
+
+      <div class="flex mt-8">
+        <div class="ml-2 mt-2 flex sm:flex-row flex-col">
+          <!-- phone -->
+          <div class="mr-16">
+            <div class="flex items-center">
+              <span class="mr-2 inline-flex items-center">
+                <Fragment set:html={phone} />
+              </span>
+              <p class="text-base font-semibold text-gray-700">Phone</p>
+            </div>
+            <p class="text-gray-500">+234 902 802 2873 ; +234 902 802 2873</p>
+          </div>
+
+          <!-- mail -->
+          <div class="mt-8 sm:mt-0">
+            <div class="flex items-center">
+              <span class="mr-2 inline-flex items-center">
+                <Fragment set:html={mail} />
+              </span>
+              <p class="text-base font-semibold text-gray-700">Mail</p>
+            </div>
+          </div>
+          <p class="text-base text-gray-700 border-[#9aa4b2] border-b w-[141px]">tedx@hotmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,48 @@
+---
+import twitter from "../../../public/twitter2.svg?raw";
+import linkedin from "../../../public/linkedin2.svg?raw";
+import web from "../../../public/web.svg?raw";
+---
+
+<section class="flex justify-between items-center sm:w-[1142px] w-[375px] mx-4 mt-16">
+    <div class="w-[704px] sm:ml-[149px]">
+      <p class="text-xl font-medium mb-4 text-gray-500">Host & Speakers</p>
+      <hr />
+      <!-- Host -->
+      <div class="w-[221px] h-[60px]">
+        <div class="flex mt-8">
+          <div class="mr-[68px]">
+            <p class="text-base font-semibold text-gray-700 mb-2">Host</p>
+          </div>
+          <div>
+            <p class="text-base font-semibold text-gray-700">Ted X</p>
+            <div class="flex items-center gap-2 mt-2">
+              <a href="#">
+                <Fragment set:html={twitter} />
+              </a>
+              <a href="#">
+                <Fragment set:html={web} />
+              </a>
+              <a href="#">
+                <Fragment set:html={linkedin} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Speakers -->
+      <div class="w-[227px] h-[120px] mt-8">
+        <div class="flex mt-2">
+          <div class="mr-8">
+            <p class="text-base font-semibold text-gray-700">Speakers</p>
+          </div>
+          <div>
+            <p class="text-base text-gray-700 mb-2">Olarewaju Seyi</p>
+            <p class="text-base text-gray-700 mb-2">Emmanuel Chris</p>
+            <p class="text-base text-gray-700">Mercy Chinwe</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

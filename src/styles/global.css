@@ -40,6 +40,12 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+#custom-width a {
+  display: block;
+  width: 100%;
+}
+
 .text-red-gradient {
   background: linear-gradient(90deg, #ff0f7b 50.74%, #f89b29 120.89%);
   background-clip: text;
