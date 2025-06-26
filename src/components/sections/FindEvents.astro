@@ -95,7 +95,7 @@ import bottomPattern from "../../images/pattern-bottom.svg";
   }
 </style>
 
-<script>
+<script >
   import { gsap } from "gsap";
   const hoverableDivs = document.querySelectorAll(".hoverable")!;
 
@@ -114,9 +114,9 @@ import bottomPattern from "../../images/pattern-bottom.svg";
     div.addEventListener("mousemove", (e) => hoverEffect(e as MouseEvent, div));
   });
 </script>
-<script type="module">
+<script is:inline>
   import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-  const swiper = new Swiper(".swiper", {
+  new Swiper(".swiper", {
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: true,
