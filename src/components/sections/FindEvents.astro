@@ -57,15 +57,15 @@ import bottomPattern from "../../images/pattern-bottom.svg";
     position: relative;
   } */
   .swiper {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    position: relative;
+    width: 100% !important;
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+    position: relative !important;
     /* overflow: hidden; */
   }
 
   .swiper-slide {
-    filter: grayscale(100%);
+    filter: grayscale(100%) !important;
     /* background-position: center;
     background-size: cover;
     width: 500px;
@@ -73,20 +73,20 @@ import bottomPattern from "../../images/pattern-bottom.svg";
   }
 
   .swiper-slide img {
-    display: block;
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
     /* transition: all 3s ease-in; */
   }
+  
   .swiper-slide-active {
     /* width: 650px; */
-    margin-top: -2rem;
+    margin-top: -2rem !important;
+    filter: grayscale(0) !important;
   }
-  .swiper-slide-active {
-    filter: grayscale(0);
-  }
+  
   @media (max-width: 640px) {
     .swiper-slide {
-      display: block;
+      display: block !important;
       /* width: 300px; */
     }
     .swiper-slide-active {
@@ -114,36 +114,45 @@ import bottomPattern from "../../images/pattern-bottom.svg";
     div.addEventListener("mousemove", (e) => hoverEffect(e as MouseEvent, div));
   });
 </script>
-<script is:inline>
-  import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-  new Swiper(".swiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: 2,
-    speed: 1000,
-    spaceBetween: 120,
-    autoplay: {
-      delay: 2000,
-      disableOnInteraction: false,
-    },
-    loop: true,
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 100,
-      modifier: 2,
-      slideShadows: true,
-    },
-    breakpoints: {
-      640: {
+<script>
+  import Swiper from "swiper";
+  import "swiper/css";
+  import "swiper/css/effect-coverflow";
+  import "swiper/css/autoplay";
+
+  // Wait for DOM to be ready before initializing Swiper
+  if (typeof window !== "undefined") {
+    window.addEventListener("DOMContentLoaded", () => {
+      new Swiper(".swiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
         slidesPerView: 2,
-        spaceBetween: 120,
-      },
-      320: {
-        slidesPerView: 1.1,
-        spaceBetween: 50,
-      },
-    },
-  });
+        speed: 1000,
+        spaceBetween: 30,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+        },
+        loop: true,
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2,
+          slideShadows: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          320: {
+            slidesPerView: 1.1,
+            spaceBetween: 10,
+          },
+        },
+      });
+    });
+  }
 </script>

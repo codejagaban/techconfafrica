@@ -89,7 +89,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  animation: errorPageChangeImage 1s linear infinite;
+  animation: errorPageChangeImage 1s ease-in infinite;
 }
 
 @keyframes errorPageChangeImage {

@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://techconf.africa/",
-  trailingSlash: "always",
+  trailingSlash: "ignore",
   // Use to always append '/' at end of url
   integrations: [tailwind(), react(), sitemap()],
 });

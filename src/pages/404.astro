@@ -32,8 +32,8 @@ import Button from "../components/elements/Button.astro"; //button component
         </div>
 
         <!-- buttons -->
-        <div class="flex sm:gap-10 gap-2">
-          <Button href="/index" label="Home" size="lg" style="primary" icon="/fi_home.svg" />
+        <div class="flex sm:gap-10 gap-4 sm:flex-row flex-col sm:items-start items-center">
+          <Button href="/" label="Home" size="lg" style="primary" icon="/fi_home.svg" />
           <Button
             href="/support"
             label="Contact Support"
@@ -45,7 +45,7 @@ import Button from "../components/elements/Button.astro"; //button component
       </div>
 
       <!-- image -->
-      <div class="image-container sm:mt-[220px] mt-[114px] sm:order-2 order-1 mb-10">
+      <div class="image-container sm:mt-[220px] mt-[114px] sm:order-2 order-1 mb-10 transition-all">
         <img src="/error.png" class="mb-0 md:mb-10 animated-image" alt="" />
         <img src="/error-2.png" class="mb-0 md:mb-10 animated-image" alt="" />
       </div>
