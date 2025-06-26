@@ -1,0 +1,117 @@
+---
+import Button from "../../components/elements/Button.astro";
+import LocationSVG from "../../../public/location.svg?raw";
+import AttendeeSVG from "../../../public/attendee.svg?raw";
+import CalenderSVG from "../../../public/calender.svg?raw";
+import CostSVG from "../../../public/cost.svg?raw";
+import regIcon from "../../../public/regIcon.svg?raw";
+---
+
+<section
+class="flex justify-between items-center sm:w-[1142px] w-auto sm:mx-[149px] mx-4 mt-16"
+>
+<div class="flex sm:flex-row flex-col">
+  <!-- about section -->
+  <div class="sm:w-[704px] w-auto sm:order-1 order-2 sm:mr-[86px]">
+    <p class="text-xl font-medium mb-4 text-gray-500">About</p>
+    <hr />
+    <!-- about event content -->
+    <div class="mt-4">
+      <p class="text-base text-justify text-gray-500">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis aliquam sem
+        nec commodo. Quisque lobortis, felis at cursus mattis, ligula nulla tristique augue, non
+        tristique dui sapien ut diam. Morbi nisi leo, aliquam id ligula quis, imperdiet
+        tristique nunc. Phasellus at bibendum purus, sed tincidunt ipsum. Maecenas ante libero,
+        tincidunt ac iaculis at, cursus eget nisl. Morbi in dictum felis. Phasellus dui felis,
+        placerat in blandit vel, laoreet et ligula. Quisque pharetra risus eu nisl mollis,
+        ultrices porttitor leo volutpat. Cras velit sem, ornare ut maximus vitae, malesuada ut
+        mauris. Pellentesque scelerisque nisl quis dui imperdiet interdum. Proin purus quam,
+        rhoncus imperdiet porta eget, maximus eget nisi. Donec vitae odio eu orci convallis
+        vehicula in id ligula. Sed sit amet mi porta, eleifend turpis vitae, pretium ex.
+        Suspendisse finibus dui ligula, id malesuada turpis faucibus in. Quisque tincidunt
+        aliquam turpis vitae gravida. Duis efficitur vel sem id porttitor. Nam venenatis nunc ac
+        ante blandit, mollis posuere erat scelerisque. Proin pretium tempus efficitur. Fusce
+        commodo, diam non pellentesque tempus, dolor velit iaculis tortor, a tincidunt elit
+        neque id diam. Donec luctus nulla ut justo mattis, in ultricies lectus sollicitudin.
+        Pellentesque ac suscipit nisi. Sed neque leo, ullamcorper eu neque eget, faucibus
+        consequat dolor. In viverra faucibus lacus sed consequat. Aliquam erat volutpat.
+        Praesent et nibh at tellus imperdiet consequat. Sed felis metus, dapibus in gravida
+        vehicula, pretium ut arcu. In condimentum nec magna non faucibus. Class aptent taciti
+        sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+      </p>
+    </div>
+  </div>
+
+  <!-- event details content for location, attendance, dates, and cost -->
+  <div class="sm:w-[352px] w-[343px] h-[576px] sm:order-2 order-1">
+    <p class="text-xl font-medium mb-4 text-gray-500">Event details</p>
+    <hr class="mb-4" />
+    <!-- Location -->
+    <div class="flex items-center">
+      <!-- using the icon component -->
+      <Fragment set:html={LocationSVG} />
+
+      <div class="ml-2 leading-6">
+        <p class="text-xl font-bold text-gray-500">Location</p>
+        <p class="font-normal text-gray-500">124, Johnson street, Asokoro, Abuja</p>
+      </div>
+    </div>
+    <!-- Attendance -->
+    <div class="flex items-center mt-8">
+      <!-- using the icon component -->
+      <Fragment set:html={AttendeeSVG} />
+
+      <div class="ml-2 leading-6">
+        <p class="text-xl font-bold text-gray-500">Attendance</p>
+        <p class="font-normal text-gray-500">Physical + Online</p>
+      </div>
+    </div>
+    <!-- Date & Time -->
+    <div class="flex mt-8">
+      <!-- using the icon component -->
+      <Fragment set:html={CalenderSVG} />
+
+      <div class="ml-2">
+        <p class="text-xl font-bold text-gray-500">Date & Time</p>
+        <div class="flex mt-2">
+          <div class="mr-8">
+            <p class="text-xs text-gray-700">From</p>
+            <p class="text-gray-500">June 30th</p>
+            <p class="text-gray-500">10:00 GMT +1</p>
+          </div>
+          <div>
+            <p class="text-xs text-gray-700">To</p>
+            <p class="text-gray-500">July 3rd</p>
+            <p class="text-gray-500">16:00 GMT +1</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Cost -->
+    <div class="flex items-center mt-8">
+      <!-- using the icon component -->
+      <Fragment set:html={CostSVG} />
+
+      <div class="ml-2 leading-6">
+        <p class="text-xl font-bold text-gray-500">Cost</p>
+        <p class="font-normal text-gray-500">Free</p>
+      </div>
+    </div>
+
+    <div class="flex mt-8">
+      <div class="w-[352px] text-center" id="custom-width">
+        <Button href="#" label="Register" style="primary" size="md" />
+      </div>
+      <a
+        href="#"
+        class="inline-flex px-3 py-0 justify-center items-center"
+      >
+      <Fragment set:html={regIcon} />
+      </a>
+    </div>
+    <div>
+      <p class="text-sm text-gray-500 pt-4">Registration open till June 28th 10:00 GMT +1</p>
+    </div>
+  </div>
+</div>
+</section>

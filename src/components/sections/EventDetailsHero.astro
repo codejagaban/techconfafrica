@@ -1,0 +1,66 @@
+---
+import chevronRight from "../../../public/chevron_right.svg?raw";
+import ShareSVG from "../../../public/share.svg?raw";
+import Sharemb from "../../../public/share2.svg?raw";
+import OrganizerIcon from "../../../public/opicon.svg?raw";
+---
+<section class="pt-40 sm:mx-[149px] mx-4">
+    <div class="border rounded-lg sm:h-44 h-[355px] flex sm:flex-row flex-col bg-gray-200">
+      <!-- content div -->
+      <div class="my-[13.5px] sm:w-[783px] w-[343px] sm:h-[152px] h-[176px] sm:order-1 order-2">
+        <!-- breadcrumb on desktop -->
+        <nav class="text-gray-700 text-sm mb-4 sm:inline hidden" aria-label="Breadcrumb">
+          <ol class="list-none pl-4 inline-flex">
+            <li class="flex items-center">
+              <a href="#">Events</a>
+              <Fragment set:html={chevronRight} />
+            </li>
+            <li class="flex items-center">
+              <a href="#" aria-current="page">Event Details</a>
+            </li>
+          </ol>
+        </nav>
+        <!-- text content -->
+        <div class="pl-4 text-gray-900 sm:text-4xl text-2xl leading-8 font-semibold">
+          Sustainable development of Tech skills among local communities
+        </div>
+        <!-- icons -->
+        <div class="flex items-center">
+          <div
+            class="ml-4 mt-3 flex sm:bg-transparent items-center border rounded-md h-10 w-10"
+          >
+          <!-- For mobile -->
+          <div class="sm:hidden">
+            <a href="#" class="px-2.5">
+              <Fragment set:html={Sharemb} />
+            </a>
+          </div>
+        
+          <!-- For desktop -->
+          <div class="hidden sm:block">
+            <a href="#" class="px-2.5">
+              <Fragment set:html={ShareSVG} />
+            </a>
+          </div>
+          </div>
+          <!-- organizer name and image -->
+          <div
+            class="sm:hidden bg-white border border-[#ccc] rounded-full h-[30px] flex p-0.5 mt-[5px] ml-[108px]"
+          >
+          <Fragment set:html={OrganizerIcon} />
+            <div class="text-sm font-medium text-gray-900 pl-2 py-0.5 pr-3 w-40 mr-4">
+              Organizers Name
+            </div
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- image div -->
+      <div
+        class="sm:flex-grow bg-cover bg-center border-none sm:rounded-br-lg rounded-tr-lg sm:rounded-tl-none rounded-tl-lg h-[176px] sm:order-2 order-1"
+        style="background-image: url('/event-page.jpeg');"
+      >
+      </div>
+    </div>
+</section>

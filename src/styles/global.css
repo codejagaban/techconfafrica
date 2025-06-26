@@ -35,11 +35,36 @@
 }
 
 .text-green-gradient {
-  background: var(--Gradient-100, linear-gradient(90deg, #00dd75 -28.74%, #60efff 129.89%));
+  background: linear-gradient(90deg, #00dd75 -28.74%, #60efff 129.89%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+#custom-width a {
+  display: block;
+  width: 100%;
+}
+
+.text-red-gradient {
+  background: linear-gradient(90deg, #ff0f7b 50.74%, #f89b29 120.89%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-purple-gradient {
+  background: linear-gradient(90deg, #875bf7f8 70.74%, #dbb3b1 129.89%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.text-teal-gradient {
+  background: linear-gradient(90deg, #06aed4f8 70.74%, #d0ffd6 129.89%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 body {
   overflow-x: hidden;
 }

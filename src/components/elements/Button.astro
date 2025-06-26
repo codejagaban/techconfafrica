@@ -4,10 +4,12 @@ interface Props {
   label: string;
   style: "primary" | "secondary";
   size: "md" | "lg";
-  icon?: string; //for any button with an icon
+  fullWidth?: boolean;
+  icon?: string;
+  iconPosition?: "left" | "right";
 }
 
-const { href, label, style, size, icon } = Astro.props;
+const { href, label, style, size, fullWidth, icon, iconPosition = "left" } = Astro.props;
 ---
 
 <a
@@ -18,9 +20,20 @@ const { href, label, style, size, icon } = Astro.props;
       "bg-black text-white border-black": style === "primary",
       "border-gray-200 bg-white": style === "secondary",
       "px-6 text-sm py-3": size === "md",
-      "px-7 text-base": size === "lg",
+      "px-10 text-base": size === "lg",
+      "w-full block text-center": fullWidth,
     },
   ]}
 >
-  {icon && <img src={icon} alt={`${label} icon`} class="inline-block" />} {label}</a
->
+  {
+    icon && iconPosition === "left" && (
+      <img src={icon} alt={`${label} icon`} class="inline-block mr-2" />
+    )
+  }
+  {label}
+  {
+    icon && iconPosition === "right" && (
+      <img src={icon} alt={`${label} icon`} class="inline-block ml-2" />
+    )
+  }
+</a>

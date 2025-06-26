@@ -1,0 +1,29 @@
+---
+import NewsLetterWidget from "../modules/NewsletterWidget.tsx";
+---
+
+<section class="py-10">
+  <div class="container mx-auto max-w-screen-xl p-5 relative">
+    <div class="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 items-center lg:gap-40 gap-10">
+      <div class="lg:col-span-2 md:text-left text-center md:px-3">
+        <h2 class="sm:text-5xl text-4xl mb-10 font-heading sm:leading-[3.5rem] leading-[3rem]">
+          Customized
+          <span class="text-teal-gradient">Newsletter</span>
+        </h2>
+        <p>
+          Stay informed and ahead with our personalized newsletter. Get curated event updates,
+          industry insights, and exclusive offers
+          <span class="font-bold text-[#06AED4F8]">tailored to your interests</span>. Join
+          TechConfAfrica today!
+        </p>
+      </div>
+
+      <div class="lg:col-span-3">
+        <NewsLetterWidget client:load />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style></style>
+<script type="module"></script>

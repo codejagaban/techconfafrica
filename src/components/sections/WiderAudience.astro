@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import arrowIcon from "../../images/right-arrow.svg";
+import Button from "../elements/Button.astro";
+import audience from "../../images/audience.svg";
+---
+
+<section class="py-10">
+  <div class="container mx-auto max-w-screen-xl p-5 relative">
+    <div class="grid lg:grid-cols-6 md:grid-cols-2 grid-cols-1 items-center gap-20">
+      <div class="lg:col-span-4 md:order-first order-last">
+        <Image src={audience} alt="Audience at an Event" class="lg:w-auto w-full" />
+      </div>
+      <div class="lg:col-span-2 md:text-left text-center md:px-3">
+        <h2 class="sm:text-5xl text-4xl mb-10 font-heading sm:leading-[3.5rem] leading-[3rem]">
+          <span class="text-green-gradient">Reach</span> a Wider Audience
+        </h2>
+        <p>
+          If you are <span class="text-emerald-500">organizing a tech event</span>, we’ve provided
+          you with a platform to showcase your event to a targeted audience. Attract the right
+          participants, and maximize the impact of your event within the African tech community.
+        </p>
+        <div class="mt-10 w-full">
+          <Button
+            label=" Host an Event"
+            href="/host-event"
+            style="primary"
+            size="lg"
+            fullWidth
+            icon={arrowIcon.src}
+            iconPosition="right"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style></style>
+<script type="module"></script>

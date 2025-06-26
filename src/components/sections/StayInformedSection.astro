@@ -1,0 +1,114 @@
+---
+import { Image } from "astro:assets";
+import allEvents from "../../images/all-events-in-one-place.svg";
+---
+
+<section class="py-2">
+  <div class="container mx-auto max-w-screen-xl px-5 relative">
+    <div class="grid lg:grid-cols-4 grid-cols-1 gap-10 lg:h-[500px] h-auto relative">
+      <div
+        class="lg:col-span-3 lg:order-first order-last items-center overflow-auto h-auto scroll-section"
+      >
+        <div class="flex sm:gap-20 gap-2 mt-20 sm:flex-row flex-col-reverse sm:mb-0 mb-20">
+          <div class="sm:w-[40%] w-full sm:px-10 px-2 sm:text-left text-center mt-5">
+            <h3 class="text-xl font-bold mb-2">Detailed Listing</h3>
+            <p>
+              Our comprehensive event listings gives you an organized repository of events happing
+              in africa
+            </p>
+          </div>
+          <div class="sm:w-1/2 w-full">
+            <Image src={allEvents} alt="Event Icon" class="sm:w-auto w-full" />
+            <div
+              class="sm:inline-block hidden border-l h-28 relative left-[40%] my-5 border-dashed border-gray-300"
+            >
+            </div>
+          </div>
+        </div>
+        <div class="flex sm:gap-20 gap-2 sm:flex-row flex-col-reverse sm:mb-0 mb-20">
+          <div class="sm:w-[40%] w-full sm:px-10 px-2 sm:text-left text-center mt-5">
+            <h3 class="text-xl font-bold mb-2">Detailed event and registration details</h3>
+            <p>
+              Find every relevant information you need about an event, Its date, locations, speakers
+              and registration details.
+            </p>
+          </div>
+          <div class="sm:w-1/2 w-full">
+            <Image src={allEvents} alt="Event Icon" class="sm:w-auto w-full" />
+            <div
+              class="sm:inline-block hidden border-l h-28 relative left-[40%] my-5 border-dashed border-gray-300"
+            >
+            </div>
+          </div>
+        </div>
+        <div class="flex sm:gap-20 gap-2 sm:flex-row flex-col-reverse sm:mb-0 mb-20">
+          <div class="sm:w-[40%] w-full sm:px-10 px-2 sm:text-left text-center mt-5">
+            <h3 class="text-xl font-bold mb-2">Mark your calendars</h3>
+            <p>
+              Make the most of every opportunity by adding events to your calendar for you to be
+              reminded about it.
+            </p>
+          </div>
+          <div class="sm:w-1/2 w-full">
+            <Image src={allEvents} alt="Event Icon" class="sm:w-auto w-full" />
+          </div>
+        </div>
+      </div>
+
+      <div class="sticky overflow-hidden lg:h-[500px] mt-10 md:text-left text-center">
+        <h3 class="sm:text-5xl text-4xl mb-10 font-heading sm:leading-[3.5rem] leading-[3rem]">
+          Stay Informed, <span class="text-red-gradient"> Never Miss Out</span>
+        </h3>
+        <p class="text-lg">
+          Never miss another tech event. <span class="text-red-gradient">Stay informed</span> with
+          detailed listings of dates, locations, speakers, and registration. Maximize every
+          opportunity.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .scroll-section::before {
+    content: "";
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: -10px;
+    z-index: 1;
+    backdrop-filter: blur(1px);
+    background-image: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.5)
+    );
+  }
+  .scroll-section::after {
+    content: "";
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    bottom: -50px;
+    z-index: 1;
+    backdrop-filter: blur(1px);
+    background-image: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.5)
+    );
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scroll-section::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scroll-section {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+</style>
+
+<script></script>
+<script type="module"></script>

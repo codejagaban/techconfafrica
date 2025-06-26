@@ -1,0 +1,58 @@
+---
+import arrowIcon from "../../images/right-arrow.svg";
+import Button from "../elements/Button.astro";
+import image from "../../images/Illustration.png";
+import { Image } from "astro:assets";
+---
+
+<section class="py-10">
+  <div class="container mx-auto max-w-screen-xl p-5 relative">
+    <div class="grid lg:grid-cols-5 grid-cols-1 py-20 lg:gap-40 gap-20 items-center">
+      <div class="lg:col-span-2">
+        <div class="lg:text-left text-center md:px-3">
+          <h2 class="sm:text-5xl text-4xl mb-10 font-heading sm:leading-[3.5rem] leading-[3rem]">
+            <span class="text-purple-gradient">Connect</span> and Network
+          </h2>
+          <p>
+            We facilitates networking and collaboration. <span class="text-purple-600">Engage</span>
+             with fellow tech enthusiasts, industry professionals, and thought leaders, that can
+            accelerate your career and spark innovative ideas.
+          </p>
+          <div class="mt-10">
+            <Button
+              label=" Explore Events"
+              href="/events"
+              style="primary"
+              size="lg"
+              fullWidth
+              icon={arrowIcon.src}
+              iconPosition="right"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-3">
+        <div class="relative">
+          <div class="box lg:block hidden"></div>
+          <Image src={image} alt="Tech Conf gathering" class="z-10 lg:w-auto w-full" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .box {
+    position: absolute;
+    width: 100%;
+    height: 353px;
+    left: -5rem;
+    top: 5rem;
+    z-index: -1;
+    background: linear-gradient(144.28deg, rgba(135, 91, 247, 0.972549) -56.9%, #dbb3b1 140.6%);
+    /* Shadow/2xl */
+    box-shadow: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
+    border-radius: 32px;
+  }
+</style>
+<script type="module"></script>

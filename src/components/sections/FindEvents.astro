@@ -2,10 +2,12 @@
 import Button from "../elements/Button.astro";
 import rightPattern from "../../images/pattern-right.svg";
 import leftPattern from "../../images/pattern-left.svg";
+import osca from "../../images/osca.png";
+import image from "../../images/image.png";
 import bottomPattern from "../../images/pattern-bottom.svg";
 ---
 
-<section class="py-20">
+<section class="pt-10 pb-2">
   <div class="container mx-auto max-w-screen-xl p-5 relative">
     <div class="flex justify-center">
       <img
@@ -36,52 +38,38 @@ import bottomPattern from "../../images/pattern-bottom.svg";
     </div>
   </div>
   <!-- Slider main container -->
-  <div class="py-10">
+  <div class="py-10 slider">
     <div class="swiper">
       <div class="swiper-wrapper">
-        <img
-          src="https://swiperjs.com/demos/images/nature-4.jpg"
-          class="swiper-slide rounded-2xl"
-        />
-        <img
-          src="https://swiperjs.com/demos/images/nature-6.jpg"
-          class="swiper-slide rounded-2xl"
-        />
-        <img
-          src="https://swiperjs.com/demos/images/nature-8.jpg"
-          class="swiper-slide rounded-2xl"
-        />
-
-        <img
-          src="https://swiperjs.com/demos/images/nature-4.jpg"
-          class="swiper-slide rounded-2xl"
-        />
-        <img
-          src="https://swiperjs.com/demos/images/nature-6.jpg"
-          class="swiper-slide rounded-2xl"
-        />
-        <img
-          src="https://swiperjs.com/demos/images/nature-8.jpg"
-          class="swiper-slide rounded-2xl"
-        />
+        <img src={osca.src} class="swiper-slide rounded-2xl" />
+        <img src={image.src} class="swiper-slide rounded-2xl" />
+        <img src={osca.src} class="swiper-slide rounded-2xl" />
+        <img src={osca.src} class="swiper-slide rounded-2xl" />
+        <img src={osca.src} class="swiper-slide rounded-2xl" />
       </div>
     </div>
   </div>
 </section>
 
 <style>
+  /* .slider {
+    height: 600px;
+    position: relative;
+  } */
   .swiper {
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
+    position: relative;
     /* overflow: hidden; */
   }
 
   .swiper-slide {
-    background-position: center;
+    filter: grayscale(100%);
+    /* background-position: center;
     background-size: cover;
     width: 500px;
-    height: 400px;
+    height: 500px; */
   }
 
   .swiper-slide img {
@@ -90,16 +78,19 @@ import bottomPattern from "../../images/pattern-bottom.svg";
     /* transition: all 3s ease-in; */
   }
   .swiper-slide-active {
-    width: 650px;
+    /* width: 650px; */
     margin-top: -2rem;
+  }
+  .swiper-slide-active {
+    filter: grayscale(0);
   }
   @media (max-width: 640px) {
     .swiper-slide {
       display: block;
-      width: 300px;
+      /* width: 300px; */
     }
     .swiper-slide-active {
-      width: 300px;
+      /* width: 300px; */
     }
   }
 </style>
@@ -129,9 +120,9 @@ import bottomPattern from "../../images/pattern-bottom.svg";
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: true,
-    slidesPerView: "auto",
+    slidesPerView: 2,
     speed: 1000,
-    spaceBetween: 50,
+    spaceBetween: 120,
     autoplay: {
       delay: 2000,
       disableOnInteraction: false,
@@ -146,8 +137,12 @@ import bottomPattern from "../../images/pattern-bottom.svg";
     },
     breakpoints: {
       640: {
-        slidesPerView: "auto",
+        slidesPerView: 2,
         spaceBetween: 120,
+      },
+      320: {
+        slidesPerView: 1.1,
+        spaceBetween: 50,
       },
     },
   });
